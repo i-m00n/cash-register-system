@@ -51,4 +51,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 )
 
 # SQLite needs these
-target_link_libraries(${PROJECT_NAME} PRIVATE dl pthread)
+if(UNIX)
+    target_link_libraries(${PROJECT_NAME} PRIVATE dl pthread)
+endif()

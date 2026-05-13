@@ -3,7 +3,7 @@ name: Build Windows EXE
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch:   # allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,10 +25,17 @@ jobs:
       - name: Build
         run: cmake --build build --config Release
 
-      - name: Deploy Qt DLLs
-        run: |
-          windeployqt build/Release/cashRegisterSystem.exe
+      - name: Copy MSVC Runtime DLLs
         shell: cmd
+        run: |
+          for /f "tokens=*" %%i in ('vswhere -latest -find "VC\Redist\MSVC\*\x64\Microsoft.VC*.CRT\MSVCP140.dll"') do copy "%%i" build\Release\
+          for /f "tokens=*" %%i in ('vswhere -latest -find "VC\Redist\MSVC\*\x64\Microsoft.VC*.CRT\MSVCP140_1.dll"') do copy "%%i" build\Release\
+          for /f "tokens=*" %%i in ('vswhere -latest -find "VC\Redist\MSVC\*\x64\Microsoft.VC*.CRT\VCRUNTIME140.dll"') do copy "%%i" build\Release\
+          for /f "tokens=*" %%i in ('vswhere -latest -find "VC\Redist\MSVC\*\x64\Microsoft.VC*.CRT\VCRUNTIME140_1.dll"') do copy "%%i" build\Release\
+
+      - name: Deploy Qt DLLs
+        shell: cmd
+        run: windeployqt build\Release\cashRegisterSystem.exe
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

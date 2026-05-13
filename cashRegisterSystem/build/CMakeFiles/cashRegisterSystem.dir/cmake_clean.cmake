@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/cashRegisterSystem_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/cashRegisterSystem_autogen.dir/ParseCache.txt"
+  "cashRegisterSystem_autogen"
+  "CMakeFiles/cashRegisterSystem.dir/CreatingAccount.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/CreatingAccount.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/ProductsForm.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/ProductsForm.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/admin.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/admin.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/admin_cart.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/admin_cart.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/cart.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/cart.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/cashRegisterSystem.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/cashRegisterSystem.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/cashRegisterSystem_autogen/EWIEGA46WW/qrc_cashRegisterSystem.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/cashRegisterSystem_autogen/EWIEGA46WW/qrc_cashRegisterSystem.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/cashRegisterSystem_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/cashRegisterSystem_autogen/mocs_compilation.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/customersForm.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/customersForm.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/database.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/database.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/login.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/login.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/main.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/main.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/navigationBar.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/navigationBar.cpp.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/sqlite/sqlite3.c.o"
+  "CMakeFiles/cashRegisterSystem.dir/sqlite/sqlite3.c.o.d"
+  "CMakeFiles/cashRegisterSystem.dir/user_cart.cpp.o"
+  "CMakeFiles/cashRegisterSystem.dir/user_cart.cpp.o.d"
+  "cashRegisterSystem"
+  "cashRegisterSystem.pdb"
+  "cashRegisterSystem_autogen/EWIEGA46WW/qrc_cashRegisterSystem.cpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C CXX)
+  include(CMakeFiles/cashRegisterSystem.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -401,12 +401,11 @@ string Database::getTodayDate() {
     std::time_t current_time = std::chrono::system_clock::to_time_t(now);
 
     // Convert the time_t value to a struct tm value
-    std::tm time_info;
-    localtime_s(&time_info, &current_time);
+    std::tm* time_info = localtime(&current_time);
 
     // Format the date as a string in "yyyy-mm-dd" format
     std::ostringstream oss;
-    oss << std::put_time(&time_info, "%Y-%m-%d");
+    oss << std::put_time(time_info, "%Y-%m-%d");
     // return date as string
     return oss.str();
 }

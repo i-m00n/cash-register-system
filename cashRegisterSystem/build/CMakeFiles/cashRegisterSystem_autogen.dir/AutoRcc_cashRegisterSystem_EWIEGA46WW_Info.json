@@ -1,0 +1,29 @@
+{
+	"BUILD_DIR" : "/home/moon/projects/cash-register-system/cashRegisterSystem/build/cashRegisterSystem_autogen",
+	"CMAKE_BINARY_DIR" : "/home/moon/projects/cash-register-system/cashRegisterSystem/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/moon/projects/cash-register-system/cashRegisterSystem/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/moon/projects/cash-register-system/cashRegisterSystem",
+	"CMAKE_SOURCE_DIR" : "/home/moon/projects/cash-register-system/cashRegisterSystem",
+	"INCLUDE_DIR" : "/home/moon/projects/cash-register-system/cashRegisterSystem/build/cashRegisterSystem_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/moon/projects/cash-register-system/cashRegisterSystem/icons/padlock.png",
+		"/home/moon/projects/cash-register-system/cashRegisterSystem/icons/Background.jpg",
+		"/home/moon/projects/cash-register-system/cashRegisterSystem/icons/empty-cart.png",
+		"/home/moon/projects/cash-register-system/cashRegisterSystem/icons/profile.png",
+		"/home/moon/projects/cash-register-system/cashRegisterSystem/icons/buying-on-smartphone.png",
+		"/home/moon/projects/cash-register-system/cashRegisterSystem/icons/coupon.png",
+		"/home/moon/projects/cash-register-system/cashRegisterSystem/media/arrow-down.png",
+		"/home/moon/projects/cash-register-system/cashRegisterSystem/media/arrow-up.png"
+	],
+	"LOCK_FILE" : "/home/moon/projects/cash-register-system/cashRegisterSystem/build/CMakeFiles/cashRegisterSystem_autogen.dir/AutoRcc_cashRegisterSystem_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "cashRegisterSystem" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_cashRegisterSystem.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/moon/projects/cash-register-system/cashRegisterSystem/build/CMakeFiles/cashRegisterSystem_autogen.dir/AutoRcc_cashRegisterSystem_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/moon/projects/cash-register-system/cashRegisterSystem/cashRegisterSystem.qrc",
+	"VERBOSITY" : 0
+}

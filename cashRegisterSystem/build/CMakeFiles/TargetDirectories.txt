@@ -1,0 +1,4 @@
+/home/moon/projects/cash-register-system/cashRegisterSystem/build/CMakeFiles/cashRegisterSystem.dir
+/home/moon/projects/cash-register-system/cashRegisterSystem/build/CMakeFiles/edit_cache.dir
+/home/moon/projects/cash-register-system/cashRegisterSystem/build/CMakeFiles/rebuild_cache.dir
+/home/moon/projects/cash-register-system/cashRegisterSystem/build/CMakeFiles/cashRegisterSystem_autogen.dir

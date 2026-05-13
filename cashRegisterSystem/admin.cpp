@@ -1,4 +1,5 @@
 ﻿#include "cashRegisterSystem.h"
+#include <QDebug>
 
 void cashRegisterSystem::on_add_item_clicked() {
     if (m_ui->item_name_item->text() == "" || m_ui->item_price_item->text() == "" || m_ui->item_quantity_item->text() == "") {
@@ -6,14 +7,14 @@ void cashRegisterSystem::on_add_item_clicked() {
         return;
     }
 
-	Database db("mydatabase.db");
-	string Items_Names = m_ui->item_name_item->text().toUtf8().constData();
-	string Items_Prices = m_ui->item_price_item->text().toUtf8().constData();
-	int Quantity = m_ui->item_quantity_item->text().toInt();
-	string type = m_ui->item_type_item->currentText().toUtf8().constData();
-	db.insertProdRows(Items_Names, Items_Prices, Quantity, type);
-    m_ui->item_name_quantity->addItem(QString::fromUtf8(Items_Names));
-    m_ui->item_name_price->addItem(QString::fromUtf8(Items_Names));
+    Database db("mydatabase.db");
+    string Items_Names = m_ui->item_name_item->text().toUtf8().constData();
+    string Items_Prices = m_ui->item_price_item->text().toUtf8().constData();
+    int Quantity = m_ui->item_quantity_item->text().toInt();
+    string type = m_ui->item_type_item->currentText().toUtf8().constData();
+    db.insertProdRows(Items_Names, Items_Prices, Quantity, type);
+    m_ui->item_name_quantity->addItem(QString::fromUtf8(Items_Names.c_str()));
+    m_ui->item_name_price->addItem(QString::fromUtf8(Items_Names.c_str()));
 	QMessageBox msg;
 	msg.setText("\u0639\u0645\u0644\u064A\u0629 \u0646\u0627\u062C\u062D\u0629");
 	msg.exec();
@@ -378,8 +379,8 @@ void cashRegisterSystem::Show_window(string type, QWidget* scrollContents, QVBox
         string price = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
         string opType = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4));
         float p = stof(price);
-        QLabel* names = new QLabel(QString("%1").arg(QString::fromUtf8(name)));
-        QLabel* opTypes = new QLabel(QString("%1").arg(QString::fromUtf8(opType)));
+        QLabel* names = new QLabel(QString("%1").arg(QString::fromUtf8(name.c_str())));
+        QLabel* opTypes = new QLabel(QString("%1").arg(QString::fromUtf8(opType.c_str())));
         QLabel* Quantities = new QLabel(QString("\u0627\u0644\u0643\u0645\u064a\u0629 : %1 ").arg(to_string(Quantity_Sell).c_str()));
         QLabel* pricesLabel = new QLabel(QString("\u0627\u0644\u0633\u0639\u0631 : %1").arg(QString::number(p)));
         f->setObjectName("OpFrame");
@@ -397,7 +398,7 @@ void cashRegisterSystem::Show_window(string type, QWidget* scrollContents, QVBox
         VLayout->addWidget(f);
         i++;
         QList<QString>key;
-        key << QString::fromUtf8(name) << QString::fromUtf8(opType);
+        key << QString::fromUtf8(name.c_str()) << QString::fromUtf8(opType.c_str());
         if (type == "sell") {
             InsertInHashOperations(sellOperation, key, p, Quantity_Sell);
         }
@@ -452,7 +453,7 @@ void cashRegisterSystem::onPriceComboIndexChanged(int index) {
     QString selectedProductName = m_ui->item_name_price->itemText(index);
     Database db("mydatabase.db");
     string price = db.selectProductPrice(selectedProductName.toStdString());
-    m_ui->item_price_price->setText(QString::fromUtf8(price));
+    m_ui->item_price_price->setText(QString::fromUtf8(price.c_str()));
     db.~Database();
 }
 

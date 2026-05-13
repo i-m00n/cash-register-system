@@ -40,7 +40,7 @@ cashRegisterSystem::cashRegisterSystem(QWidget* parent)
     m_ui->nav_frame->setHidden(true);
 
     // Validators
-    QIntValidator* validator = new QIntValidator(0, 99999999999, parent);
+    QIntValidator* validator = new QIntValidator(0, INT_MAX, parent);
     m_ui->phoneSearch->setValidator(validator);
     m_ui->new_customer_phone->setValidator(validator);
     m_ui->admin_phone_number->setValidator(validator);

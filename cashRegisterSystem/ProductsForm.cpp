@@ -40,7 +40,7 @@ void cashRegisterSystem::generateProductsTable()
         sqlite3_close(m_ProductsDB);
     }
     QStandardItemModel* model = new QStandardItemModel(this);
-    model->setHorizontalHeaderLabels({ "النوع","الكمية", "السعر", "الاسم" });
+    model->setHorizontalHeaderLabels({ QString::fromUtf8("النوع"), QString::fromUtf8("الكمية"), QString::fromUtf8("السعر"), QString::fromUtf8("الاسم") });
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         const char* name = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
         const char* price = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
@@ -87,8 +87,8 @@ void cashRegisterSystem::GenrateTypesForCombo()
 
     if (rc == SQLITE_OK) {
         m_ui->ProdTypeSearch->clear();
-        QString all = "الكل";
-        m_ui->ProdTypeSearch->addItem("الكل", QVariant(all));
+        QString all = QString::fromUtf8("الكل");
+        m_ui->ProdTypeSearch->addItem(all, QVariant(all));
         // Iterate over the rows and add each type to the combobox
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             const char* type = (const char*)sqlite3_column_text(stmt, 0);

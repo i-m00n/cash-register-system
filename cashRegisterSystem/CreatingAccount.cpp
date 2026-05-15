@@ -17,11 +17,11 @@ void cashRegisterSystem::on_add_new_clicked()
         newClass = "طالب"; //
     }
     if (newName.isEmpty() || newPhone.isEmpty()) {
-        QMessageBox::information(this, "الحالة ", "عميلة خاطئة ");
+        QMessageBox::information(this, QString::fromUtf8("الحالة "), QString::fromUtf8("عميلة خاطئة "));
     }
     else {
         db.insertCustomerRows(newName1, newPhone1, 0, newClass);
-        QMessageBox::information(this, "الحالة ", "عميلة ناجحة ");
+        QMessageBox::information(this, QString::fromUtf8("الحالة "), QString::fromUtf8("عميلة ناجحة "));
         m_ui->new_customer_name->clear();
         m_ui->new_customer_phone->clear();
     }
@@ -34,7 +34,7 @@ void cashRegisterSystem::on_remove_customer_clicked()
     string Items_Names = m_ui->new_customer_phone->text().toUtf8().constData();
     db.DeleteCustomerRow(Items_Names);
 
-    QMessageBox::information(this,"الحالة","تم الحذف بنجاح");
+    QMessageBox::information(this, QString::fromUtf8("الحالة"), QString::fromUtf8("تم الحذف بنجاح"));
 
     m_ui->new_customer_phone->clear();
 

@@ -24,7 +24,7 @@ void cashRegisterSystem::payOperation(char type, QLabel* priceBefore, QLabel* pr
     }
     catch (...) {
         db.rollbackTransaction();
-        QMessageBox::warning(this, "خطأ", ".حدث خطأ أثناء إتمام العملية، يرجى المحاولة مرة أخرى");
+        QMessageBox::warning(this, QString::fromUtf8("خطأ"), QString::fromUtf8(".حدث خطأ أثناء إتمام العملية، يرجى المحاولة مرة أخرى"));
     }
 
     DeleteAll(priceBefore, priceAfter, checkButton, phoneNumberField, cartContent);
@@ -177,7 +177,7 @@ void cashRegisterSystem::on_name_button_clicked(double quantity, QString name, f
     QLabel* totPrice = new QLabel(tr("%1").arg(totalPrice));
     totPrice->setStyleSheet("border: none; font-size:16px;");
 
-    Delete_button.push_back(new QPushButton("حذف"));
+    Delete_button.push_back(new QPushButton(QString::fromUtf8("حذف")));
     layout->addWidget(names);
     layout->addWidget(quantities);
     layout->addWidget(pricesPerEach);

@@ -3,7 +3,7 @@
 
 void cashRegisterSystem::on_add_item_clicked() {
     if (m_ui->item_name_item->text() == "" || m_ui->item_price_item->text() == "" || m_ui->item_quantity_item->text() == "") {
-        QMessageBox::warning(this,"warning","برجاء ادخال البيانات كاملة");
+        QMessageBox::warning(this,QString::fromUtf8("warning"),QString::fromUtf8("برجاء ادخال البيانات كاملة"));
         return;
     }
 
@@ -31,7 +31,7 @@ void cashRegisterSystem::on_add_item_clicked() {
 
 void cashRegisterSystem::on_remove_item_clicked() {
     if (m_ui->item_name_item->text() == "") {
-        QMessageBox::warning(this, "warning", "برجاء ادخال البيانات كاملة");
+        QMessageBox::warning(this, QString::fromUtf8("warning"), QString::fromUtf8("برجاء ادخال البيانات كاملة"));
         return;
     }
 
@@ -58,7 +58,7 @@ void cashRegisterSystem::on_remove_item_clicked() {
 
 void cashRegisterSystem::on_add_category_clicked() {
     if (m_ui->category_name->text() == "") {
-        QMessageBox::warning(this, "warning", "برجاء ادخال البيانات كاملة");
+        QMessageBox::warning(this, QString::fromUtf8("warning"), QString::fromUtf8("برجاء ادخال البيانات كاملة"));
         return;
     }
 
@@ -98,7 +98,7 @@ void cashRegisterSystem::on_add_category_clicked() {
 
 void cashRegisterSystem::on_remove_category_clicked() {
     if (m_ui->category_name->text() == "") {
-        QMessageBox::warning(this, "warning", "برجاء ادخال البيانات كاملة");
+        QMessageBox::warning(this, QString::fromUtf8("warning"), QString::fromUtf8("برجاء ادخال البيانات كاملة"));
         return;
     }
 
@@ -107,14 +107,14 @@ void cashRegisterSystem::on_remove_category_clicked() {
     // Open the file for reading and writing
     QFile file("categories.txt");
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
-        QMessageBox::warning(this, "open file error", "couldn't open categories file");
+        QMessageBox::warning(this, QString::fromUtf8("open file error"), QString::fromUtf8("couldn't open categories file"));
         return;
     }
 
     // Create a temporary file
     QFile tempFile("TEMPcategories.txt");
     if (!tempFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QMessageBox::warning(this, "open file error", "couldn't open TEMPcategories file");
+        QMessageBox::warning(this, QString::fromUtf8("open file error"), QString::fromUtf8("couldn't open TEMPcategories file"));
         file.close();
         return;
     }
@@ -168,7 +168,7 @@ void cashRegisterSystem::on_remove_category_clicked() {
 
 void cashRegisterSystem::on_add_quantity_clicked() {
     if (m_ui->item_quantity_quantity->text() == "") {
-        QMessageBox::warning(this, "warning", "برجاء ادخال البيانات كاملة");
+        QMessageBox::warning(this, QString::fromUtf8("warning"), QString::fromUtf8("برجاء ادخال البيانات كاملة"));
         return;
     }
 
@@ -177,7 +177,7 @@ void cashRegisterSystem::on_add_quantity_clicked() {
     int item_Quantity = m_ui->item_quantity_quantity->text().toInt();
     db.updateProductQuantity(item_name, item_Quantity,'+');
     QMessageBox msg;
-    msg.setText("عملية ناجحة");
+    msg.setText(QString::fromUtf8("عملية ناجحة"));
     msg.exec();
 
     m_ui->item_name_quantity->setCurrentIndex(0);
@@ -191,7 +191,7 @@ void cashRegisterSystem::on_add_quantity_clicked() {
 
 void cashRegisterSystem::on_remove_quantity_clicked() {
     if (m_ui->item_quantity_quantity->text() == "") {
-        QMessageBox::warning(this, "warning", "برجاء ادخال البيانات كاملة");
+        QMessageBox::warning(this, QString::fromUtf8("warning"), QString::fromUtf8("برجاء ادخال البيانات كاملة"));
         return;
     }
 
@@ -200,7 +200,7 @@ void cashRegisterSystem::on_remove_quantity_clicked() {
     int item_Quantity = m_ui->item_quantity_quantity->text().toInt();
     db.updateProductQuantity(item_name, item_Quantity, '-');
     QMessageBox msg;
-    msg.setText("عملية ناجحة");
+    msg.setText(QString::fromUtf8("عملية ناجحة"));
     msg.exec();
 
     m_ui->item_quantity_quantity->clear();
@@ -212,7 +212,7 @@ void cashRegisterSystem::on_remove_quantity_clicked() {
 
 void cashRegisterSystem::on_edit_price_clicked() {
     if (m_ui->item_price_price->text() == "") {
-        QMessageBox::warning(this, "warning", "برجاء ادخال البيانات كاملة");
+        QMessageBox::warning(this, QString::fromUtf8("warning"), QString::fromUtf8("برجاء ادخال البيانات كاملة"));
         return;
     }
 
@@ -221,7 +221,7 @@ void cashRegisterSystem::on_edit_price_clicked() {
     string item_price = m_ui->item_price_price->text().toUtf8().constData();
     db.editProductPrice(item_name, item_price);
     QMessageBox msg;
-    msg.setText("عملية ناجحة");
+    msg.setText(QString::fromUtf8("عملية ناجحة"));
     msg.exec();
 
     m_ui->item_name_price->setCurrentIndex(0);
@@ -324,8 +324,8 @@ void cashRegisterSystem::Show_total_window(QVBoxLayout* VLayout, QTextBrowser* d
 
         QLabel* name = new QLabel(i.key().at(0));
         QLabel* opType = new QLabel(i.key().at(1));
-        QLabel* PriceLabel = new QLabel("السعر : " + QString::number(prices));
-        QLabel* Quantitylabel = new QLabel("الكمية :"+QString::number(quantity));
+        QLabel* PriceLabel = new QLabel(QString::fromUtf8("السعر : ") + QString::number(prices));
+        QLabel* Quantitylabel = new QLabel(QString::fromUtf8("الكمية :")+QString::number(quantity));
         name->setStyleSheet("border:none;");
         opType->setStyleSheet("border:none;");
         Quantitylabel->setStyleSheet("border:none;");
@@ -354,8 +354,8 @@ void cashRegisterSystem::Show_total_window(QVBoxLayout* VLayout, QTextBrowser* d
             prices = j.value().at(1).toFloat();
             QLabel* name = new QLabel(j.key().at(0));
             QLabel* opType = new QLabel(j.key().at(1));
-            QLabel* PriceLabel = new QLabel("السعر :" + QString::number(prices));
-            QLabel* Quantitylabel = new QLabel("الكمية :" + QString::number(quantity));
+            QLabel* PriceLabel = new QLabel(QString::fromUtf8("السعر : ") + QString::number(prices));
+            QLabel* Quantitylabel = new QLabel(QString::fromUtf8("الكمية : ") + QString::number(quantity));
             name->setStyleSheet("border:none;");
             Quantitylabel->setStyleSheet("border:none;");
             PriceLabel->setStyleSheet("border:none;");
@@ -571,9 +571,9 @@ void cashRegisterSystem::on_edit_admin_clicked() {
 
 void cashRegisterSystem::on_delete_all_products_clicked() {
     QMessageBox msgBox;
-    msgBox.setText("متأكد من انك تريد حذف جميع المنتجات؟");
-    QPushButton* sureButton = msgBox.addButton("نعم متأكد", QMessageBox::AcceptRole);
-    QPushButton* cancelButton = msgBox.addButton("إلغاء", QMessageBox::RejectRole);
+    msgBox.setText(QString::fromUtf8("متأكد من انك تريد حذف جميع المنتجات؟"));
+    QPushButton* sureButton = msgBox.addButton(QString::fromUtf8("نعم متأكد"), QMessageBox::AcceptRole);
+    QPushButton* cancelButton = msgBox.addButton(QString::fromUtf8("إلغاء"), QMessageBox::RejectRole);
     int result = msgBox.exec();
     if (result == QMessageBox::AcceptRole) {
         backupDatabase();
@@ -581,7 +581,7 @@ void cashRegisterSystem::on_delete_all_products_clicked() {
         db.DeleteAllProdRow();
         db.~Database();
 
-        QMessageBox::information(this, "عملية ناجحة", "تم حذف جميع المنتجات");
+        QMessageBox::information(this, QString::fromUtf8("عملية ناجحة"), QString::fromUtf8("تم حذف جميع المنتجات"));
 
         m_AdminProductIsUpdated = true;
         m_UserProductIsUpdated = true;

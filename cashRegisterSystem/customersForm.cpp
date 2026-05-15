@@ -38,13 +38,13 @@ void cashRegisterSystem::search()
     rc = sqlite3_prepare_v2(m_ProductsDB, query.toUtf8().constData(), -1, &stmt, NULL);
 
     if (rc != SQLITE_OK) {
-        QMessageBox::warning(this, "oh no", query);
+        QMessageBox::warning(this, QString::fromUtf8("oh no"), query);
         sqlite3_finalize(stmt);
         sqlite3_close(m_ProductsDB);
     }
 
     QStandardItemModel* model = new QStandardItemModel(this);
-    model->setHorizontalHeaderLabels({ "الفئة", "اجمالي المدفوع", "رقم الهاتف", "الاسم" });
+    model->setHorizontalHeaderLabels({ QString::fromUtf8("الفئة"), QString::fromUtf8("اجمالي المدفوع"), QString::fromUtf8("رقم الهاتف"), QString::fromUtf8("الاسم") });
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         const char* name = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
         const char* phone_number = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));

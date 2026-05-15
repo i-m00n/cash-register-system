@@ -15,9 +15,9 @@ cashRegisterSystem::cashRegisterSystem(QWidget* parent)
     m_ui->setupUi(this);
     m_ui->password_field->setEchoMode(QLineEdit::Password);
     i = 0;
-    m_ui->class_box->addItem("عميل عادي");
-    m_ui->class_box->addItem("عميل مهم");
-    m_ui->class_box->addItem("طالب");
+    m_ui->class_box->addItem(QString::fromUtf8("عميل عادي"));
+    m_ui->class_box->addItem(QString::fromUtf8("عميل مهم"));
+    m_ui->class_box->addItem(QString::fromUtf8("طالب"));
     QApplication::setWindowIcon(QIcon("icon.ico"));
     isAdmin = false;
 

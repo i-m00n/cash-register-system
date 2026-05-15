@@ -54,3 +54,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 if(UNIX)
     target_link_libraries(${PROJECT_NAME} PRIVATE dl pthread)
 endif()
+
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()

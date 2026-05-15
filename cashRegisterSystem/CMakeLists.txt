@@ -44,6 +44,12 @@ add_executable(${PROJECT_NAME}
     ${QRC_FILES}
 )
 
+# Place the encoding flags here
+if(MSVC)
+    target_compile_options(${PROJECT_NAME} PRIVATE /utf-8)
+    add_definitions(-DUNICODE -D_UNICODE)
+endif()
+
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt5::Widgets
     Qt5::Sql
@@ -53,8 +59,4 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 # SQLite needs these
 if(UNIX)
     target_link_libraries(${PROJECT_NAME} PRIVATE dl pthread)
-endif()
-
-if(MSVC)
-    add_compile_options(/utf-8)
 endif()

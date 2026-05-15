@@ -571,9 +571,9 @@ void cashRegisterSystem::on_edit_admin_clicked() {
 
 void cashRegisterSystem::on_delete_all_products_clicked() {
     QMessageBox msgBox;
-    msgBox.setText(QString::fromUtf8("متأكد من انك تريد حذف جميع المنتجات؟"));
-    QPushButton* sureButton = msgBox.addButton(QString::fromUtf8("نعم متأكد"), QMessageBox::AcceptRole);
-    QPushButton* cancelButton = msgBox.addButton(QString::fromUtf8("إلغاء"), QMessageBox::RejectRole);
+    msgBox.setText(u8"متأكد من انك تريد حذف جميع المنتجات؟");
+    QPushButton* sureButton = msgBox.addButton(u8"نعم متأكد", QMessageBox::AcceptRole);
+    QPushButton* cancelButton = msgBox.addButton(u8"إلغاء", QMessageBox::RejectRole);
     int result = msgBox.exec();
     if (result == QMessageBox::AcceptRole) {
         backupDatabase();
@@ -581,7 +581,7 @@ void cashRegisterSystem::on_delete_all_products_clicked() {
         db.DeleteAllProdRow();
         db.~Database();
 
-        QMessageBox::information(this, QString::fromUtf8("عملية ناجحة"), QString::fromUtf8("تم حذف جميع المنتجات"));
+        QMessageBox::information(this, u8"عملية ناجحة", u8"تم حذف جميع المنتجات");
 
         m_AdminProductIsUpdated = true;
         m_UserProductIsUpdated = true;

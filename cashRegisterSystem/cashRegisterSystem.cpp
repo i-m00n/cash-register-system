@@ -15,9 +15,9 @@ cashRegisterSystem::cashRegisterSystem(QWidget* parent)
     m_ui->setupUi(this);
     m_ui->password_field->setEchoMode(QLineEdit::Password);
     i = 0;
-    m_ui->class_box->addItem("\u0639\u0645\u064A\u0644 \u0639\u0627\u062F\u064A");
-    m_ui->class_box->addItem("\u0639\u0645\u064A\u0644 \u0645\u0647\u0645");
-    m_ui->class_box->addItem("\u0637\u0627\u0644\u0628");
+    m_ui->class_box->addItem("عميل عادي");
+    m_ui->class_box->addItem("عميل مهم");
+    m_ui->class_box->addItem("طالب");
     QApplication::setWindowIcon(QIcon("icon.ico"));
     isAdmin = false;
 

@@ -16,7 +16,7 @@ void cashRegisterSystem::on_add_item_clicked() {
     m_ui->item_name_quantity->addItem(QString::fromUtf8(Items_Names.c_str()));
     m_ui->item_name_price->addItem(QString::fromUtf8(Items_Names.c_str()));
 	QMessageBox msg;
-	msg.setText("\u0639\u0645\u0644\u064A\u0629 \u0646\u0627\u062C\u062D\u0629");
+	msg.setText("عملية ناجحة");
 	msg.exec();
 	m_ui->item_name_item->clear();
 	m_ui->item_price_item->clear();
@@ -46,7 +46,7 @@ void cashRegisterSystem::on_remove_item_clicked() {
         m_ui->item_name_price->removeItem(index2); // remove the item by index
     }
     QMessageBox msg;
-    msg.setText("\u062a\u0645 \u0627\u0644\u062d\u0630\u0641 \u0628\u0646\u062c\u0627\u062d");
+    msg.setText("تم الحذف بنجاح");
     msg.exec();
     m_ui->item_name_item->clear();
 
@@ -177,7 +177,7 @@ void cashRegisterSystem::on_add_quantity_clicked() {
     int item_Quantity = m_ui->item_quantity_quantity->text().toInt();
     db.updateProductQuantity(item_name, item_Quantity,'+');
     QMessageBox msg;
-    msg.setText("\u0639\u0645\u0644\u064A\u0629 \u0646\u0627\u062C\u062D\u0629");
+    msg.setText("عملية ناجحة");
     msg.exec();
 
     m_ui->item_name_quantity->setCurrentIndex(0);
@@ -200,7 +200,7 @@ void cashRegisterSystem::on_remove_quantity_clicked() {
     int item_Quantity = m_ui->item_quantity_quantity->text().toInt();
     db.updateProductQuantity(item_name, item_Quantity, '-');
     QMessageBox msg;
-    msg.setText("\u0639\u0645\u0644\u064A\u0629 \u0646\u0627\u062C\u062D\u0629");
+    msg.setText("عملية ناجحة");
     msg.exec();
 
     m_ui->item_quantity_quantity->clear();
@@ -221,7 +221,7 @@ void cashRegisterSystem::on_edit_price_clicked() {
     string item_price = m_ui->item_price_price->text().toUtf8().constData();
     db.editProductPrice(item_name, item_price);
     QMessageBox msg;
-    msg.setText("\u0639\u0645\u0644\u064A\u0629 \u0646\u0627\u062C\u062D\u0629");
+    msg.setText("عملية ناجحة");
     msg.exec();
 
     m_ui->item_name_price->setCurrentIndex(0);
@@ -324,8 +324,8 @@ void cashRegisterSystem::Show_total_window(QVBoxLayout* VLayout, QTextBrowser* d
 
         QLabel* name = new QLabel(i.key().at(0));
         QLabel* opType = new QLabel(i.key().at(1));
-        QLabel* PriceLabel = new QLabel("\u0627\u0644\u0633\u0639\u0631 : " + QString::number(prices));
-        QLabel* Quantitylabel = new QLabel("\u0627\u0644\u0643\u0645\u064a\u0629 :"+QString::number(quantity));
+        QLabel* PriceLabel = new QLabel("السعر : " + QString::number(prices));
+        QLabel* Quantitylabel = new QLabel("الكمية :"+QString::number(quantity));
         name->setStyleSheet("border:none;");
         opType->setStyleSheet("border:none;");
         Quantitylabel->setStyleSheet("border:none;");
@@ -354,8 +354,8 @@ void cashRegisterSystem::Show_total_window(QVBoxLayout* VLayout, QTextBrowser* d
             prices = j.value().at(1).toFloat();
             QLabel* name = new QLabel(j.key().at(0));
             QLabel* opType = new QLabel(j.key().at(1));
-            QLabel* PriceLabel = new QLabel("\u0627\u0644\u0633\u0639\u0631 :" + QString::number(prices));
-            QLabel* Quantitylabel = new QLabel("\u0627\u0644\u0643\u0645\u064a\u0629 :" + QString::number(quantity));
+            QLabel* PriceLabel = new QLabel("السعر :" + QString::number(prices));
+            QLabel* Quantitylabel = new QLabel("الكمية :" + QString::number(quantity));
             name->setStyleSheet("border:none;");
             Quantitylabel->setStyleSheet("border:none;");
             PriceLabel->setStyleSheet("border:none;");
@@ -418,8 +418,8 @@ void cashRegisterSystem::Show_window(string type, QWidget* scrollContents, QVBox
         float p = stof(price);
         QLabel* names = new QLabel(QString("%1").arg(QString::fromUtf8(name.c_str())));
         QLabel* opTypes = new QLabel(QString("%1").arg(QString::fromUtf8(opType.c_str())));
-        QLabel* Quantities = new QLabel(QString("\u0627\u0644\u0643\u0645\u064a\u0629 : %1 ").arg(to_string(Quantity_Sell).c_str()));
-        QLabel* pricesLabel = new QLabel(QString("\u0627\u0644\u0633\u0639\u0631 : %1").arg(QString::number(p)));
+        QLabel* Quantities = new QLabel(QString("الكمية : %1 ").arg(to_string(Quantity_Sell).c_str()));
+        QLabel* pricesLabel = new QLabel(QString("السعر : %1").arg(QString::number(p)));
         f->setObjectName("OpFrame");
         if (i % 2 == 1){
             f->setStyleSheet(

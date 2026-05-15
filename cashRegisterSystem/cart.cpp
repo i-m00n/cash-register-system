@@ -24,7 +24,7 @@ void cashRegisterSystem::payOperation(char type, QLabel* priceBefore, QLabel* pr
     }
     catch (...) {
         db.rollbackTransaction();
-        QMessageBox::warning(this, "\u062E\u0637\u0623", "\u062D\u062F\u062B \u062E\u0637\u0623 \u0627\u062B\u0646\u0627\u0621 \u0627\u0644\u0639\u0645\u0644\u064A\u0629");
+        QMessageBox::warning(this, "خطأ", ".حدث خطأ أثناء إتمام العملية، يرجى المحاولة مرة أخرى");
     }
 
     DeleteAll(priceBefore, priceAfter, checkButton, phoneNumberField, cartContent);
@@ -49,7 +49,7 @@ float cashRegisterSystem::check_discount(QLabel* priceAfter, QLabel* priceBefore
 
         float adminDiscount = 1 - (m_ui->discount_spinbox->value() / 100);
 
-        if (customerClass == "\u0637\u0627\u0644\u0628" || customerClass == "\u0639\u0645\u064A\u0644 \u0645\u0647\u0645") {
+        if (customerClass == "طالب" || customerClass == "عميل مهم") {
 
             // giving the priority to the admin discount
             if (adminDiscount == 1) minDiscount = PHONE_DISCOUNT;
@@ -74,7 +74,7 @@ float cashRegisterSystem::check_discount(QLabel* priceAfter, QLabel* priceBefore
                 return price;
             }
         }
-        else if (customerClass == "\u0639\u0645\u064A\u0644 \u0639\u0627\u062F\u064A") {
+        else if (customerClass == "عميل عادي") {
             // updates price after every time entering this condition
             if (price == SLOT_PRICE) price = adminDiscount;
             else price *= adminDiscount;
@@ -177,7 +177,7 @@ void cashRegisterSystem::on_name_button_clicked(double quantity, QString name, f
     QLabel* totPrice = new QLabel(tr("%1").arg(totalPrice));
     totPrice->setStyleSheet("border: none; font-size:16px;");
 
-    Delete_button.push_back(new QPushButton("\u062D\u0630\u0641"));
+    Delete_button.push_back(new QPushButton("حذف"));
     layout->addWidget(names);
     layout->addWidget(quantities);
     layout->addWidget(pricesPerEach);

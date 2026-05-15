@@ -26,12 +26,12 @@ void cashRegisterSystem::search()
     }
     if (rank != NULL) {
         if (rank == 2) {
-            ss += " AND class = '\u0639\u0645\u064A\u0644 \u0645\u0647\u0645'";
+            ss += " AND class = 'عميل مهم'";
         }
         else if (rank == 3) {
-            ss += " AND class = '\u0637\u0627\u0644\u0628'";
+            ss += " AND class = 'طالب'";
         }else if (rank == 1) {
-            ss += " AND class = '\u0639\u0645\u064A\u0644 \u0639\u0627\u062F\u064A'";
+            ss += " AND class = 'عميل عادي'";
         }
     }
     QString query = QString::fromStdString(ss);

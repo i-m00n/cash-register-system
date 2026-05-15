@@ -2,7 +2,7 @@ name: Build Windows EXE
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   workflow_dispatch:
 
 jobs:
@@ -16,14 +16,14 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: '5.15.2'
-          arch: 'win64_msvc2019_64'
+          version: "5.15.2"
+          arch: "win64_msvc2019_64"
 
       - name: Configure CMake
         run: cmake -B build -S cashRegisterSystem
 
       - name: Build
-        run: cmake --build build --config Release
+        run: cmake --build build --config Release -- /p:CharacterSet=Unicode
 
       - name: Copy MSVC Runtime DLLs
         shell: cmd
@@ -35,7 +35,7 @@ jobs:
 
       - name: Deploy Qt DLLs
         shell: cmd
-        run: windeployqt build\Release\cashRegisterSystem.exe
+        run: windeployqt --release --no-translations --compiler-runtime build\Release\cashRegisterSystem.exe
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

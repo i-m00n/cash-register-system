@@ -234,31 +234,31 @@ void cashRegisterSystem::on_edit_price_clicked() {
 }
 
 void cashRegisterSystem::Show_Sell_window_Admin() {
+    sellOperation.clear();
     Show_window("sell", m_ui->sell_operations_contents,m_ui->sell_VLayout,m_ui->opType, m_ui->date_search_from, m_ui->date_search_to);
 }
 
 void cashRegisterSystem::Show_retrieve_window_Admin() {
+    retrieveOperation.clear();
     Show_window("retrieve", m_ui->return_operations_contents,m_ui->return_VLayout, m_ui->opType, m_ui->date_search_from, m_ui->date_search_to);
 }
 
 void cashRegisterSystem::Update_total_Admin() {
     Show_total_window(m_ui->total_VLayout, m_ui->day_total_income, m_ui->total_operations_contents);
-    sellOperation.clear();
-    retrieveOperation.clear();
 }
 
 void cashRegisterSystem::Show_Sell_window_User() {
+    sellOperation.clear();
     Show_window("sell", m_ui->sell_operations_contents_user, m_ui->sell_VLayout_user, m_ui->opType_user, m_ui->dateEdit_user, m_ui->dateEdit_user);
 }
 
 void cashRegisterSystem::Show_retrieve_window_User() {
+    retrieveOperation.clear();
     Show_window("retrieve", m_ui->return_operations_contents_user, m_ui->return_VLayout_user, m_ui->opType_user, m_ui->dateEdit_user, m_ui->dateEdit_user);
 }
 
 void cashRegisterSystem::Update_total_User() {
     Show_total_window(m_ui->total_VLayout_user, m_ui->day_total_income_user,m_ui->total_operations_contents_user);
-    sellOperation.clear();
-    retrieveOperation.clear();
 }
 
 void cashRegisterSystem::Show_total_window(QVBoxLayout* VLayout, QTextBrowser* day_total_income, QWidget* total_operations_contents) {
@@ -285,8 +285,43 @@ void cashRegisterSystem::Show_total_window(QVBoxLayout* VLayout, QTextBrowser* d
             prices = i.value().at(1).toFloat();
         }
         f->setObjectName("TotalFrame");
-        if (index % 2 == 1) f->setStyleSheet("#TotalFrame{background-color:rgba(200,171,151,0.5); border-radius:5px; margin:5px;} QLabel{font-weight:bold; font-size:16px;}");
-        if (index % 2 == 0) f->setStyleSheet("#TotalFrame{background-color:rgba(200,200,200,1); border-radius:5px; margin:5px;}QLabel{ font-weight:bold; font-size:16px; }");
+
+        if (index % 2 == 1){
+            f->setStyleSheet(
+            "#TotalFrame{"
+            "background-color:#F5F2EA;"
+            "border:1px solid #C8B89A;"
+            "border-radius:10px;"
+            "margin:5px;"
+            "padding:6px;"
+            "}"
+            "QLabel{"
+            "font-weight:bold;"
+            "font-size:16px;"
+            "color:black;"
+            "background:transparent;"
+            "border:none;"
+            "}"
+        );}
+
+        if (index % 2 == 0){
+            f->setStyleSheet(
+                "#TotalFrame{"
+                "background-color:#FAFAF6;"
+                "border:1px solid #C8B89A;"
+                "border-radius:10px;"
+                "margin:5px;"
+                "padding:6px;"
+                "}"
+                "QLabel{"
+                "font-weight:bold;"
+                "font-size:16px;"
+                "color:black;"
+                "background:transparent;"
+                "border:none;"
+                "}"
+        );}
+
         QLabel* name = new QLabel(i.key().at(0));
         QLabel* opType = new QLabel(i.key().at(1));
         QLabel* PriceLabel = new QLabel("\u0627\u0644\u0633\u0639\u0631 : " + QString::number(prices));
@@ -317,8 +352,8 @@ void cashRegisterSystem::Show_total_window(QVBoxLayout* VLayout, QTextBrowser* d
         {
             quantity = j.value().at(0).toInt();
             prices = j.value().at(1).toFloat();
-            QLabel* name = new QLabel(i.key().at(0));
-            QLabel* opType = new QLabel(i.key().at(1));
+            QLabel* name = new QLabel(j.key().at(0));
+            QLabel* opType = new QLabel(j.key().at(1));
             QLabel* PriceLabel = new QLabel("\u0627\u0644\u0633\u0639\u0631 :" + QString::number(prices));
             QLabel* Quantitylabel = new QLabel("\u0627\u0644\u0643\u0645\u064a\u0629 :" + QString::number(quantity));
             name->setStyleSheet("border:none;");
@@ -337,7 +372,9 @@ void cashRegisterSystem::Show_total_window(QVBoxLayout* VLayout, QTextBrowser* d
 
     day_total_income->setStyleSheet("font-size:16px; font-weight:bold");
     day_total_income->setText(QString::number(TotalPrice));
-    total_operations_contents->setLayout(VLayout);  
+        if (total_operations_contents->layout() == nullptr) {
+            total_operations_contents->setLayout(VLayout);  
+    }
 }
 
 void cashRegisterSystem::Show_window(string type, QWidget* scrollContents, QVBoxLayout* VLayout, QComboBox* opType, QDateEdit* date_search_from, QDateEdit* date_search_to) {
@@ -384,13 +421,42 @@ void cashRegisterSystem::Show_window(string type, QWidget* scrollContents, QVBox
         QLabel* Quantities = new QLabel(QString("\u0627\u0644\u0643\u0645\u064a\u0629 : %1 ").arg(to_string(Quantity_Sell).c_str()));
         QLabel* pricesLabel = new QLabel(QString("\u0627\u0644\u0633\u0639\u0631 : %1").arg(QString::number(p)));
         f->setObjectName("OpFrame");
-   /*     names->setStyleSheet("border:none;");
-        opTypes->setStyleSheet("border:none;");
-        Quantities->setStyleSheet("border:none;");
-        pricesLabel->setStyleSheet("border:none;");*/
-        if (i % 2 == 1) f->setStyleSheet("#OpFrame{background-color:rgba(200,171,151,0.5); border-radius:5px; margin:5px;} QLabel{font-weight:bold; font-size:16px; }");
-        if (i % 2 == 0) f->setStyleSheet("#OpFrame{background-color:rgba(200,200,200,1); border-radius:5px; margin:5px;}QLabel{ font-weight:bold; font-size:16px; }");
+        if (i % 2 == 1){
+            f->setStyleSheet(
+                "#OpFrame{"
+                "background-color:#F5F2EA;"
+                "border:1px solid #C8B89A;"
+                "border-radius:10px;"
+                "margin:5px;"
+                "padding:6px;"
+                "}"
+                "QLabel{"
+                "font-weight:bold;"
+                "font-size:16px;"
+                "color:black;"
+                "background:transparent;"
+                "border:none;"
+                "}"
+            );}
 
+        if (i % 2 == 0){
+            f->setStyleSheet(
+                "#OpFrame{"
+                "background-color:#FAFAF6;"
+                "border:1px solid #C8B89A;"
+                "border-radius:10px;"
+                "margin:5px;"
+                "padding:6px;"
+                "}"
+                "QLabel{"
+                "font-weight:bold;"
+                "font-size:16px;"
+                "color:black;"
+                "background:transparent;"
+                "border:none;"
+                "}"
+            );}
+            
         hLayout->addWidget(Quantities);
         hLayout->addWidget(pricesLabel);
         hLayout->addWidget(opTypes);
@@ -406,7 +472,9 @@ void cashRegisterSystem::Show_window(string type, QWidget* scrollContents, QVBox
             InsertInHashOperations(retrieveOperation, key, p, Quantity_Sell);
         }
     }
-    scrollContents->setLayout(VLayout);
+    if (scrollContents->layout() == nullptr) {
+        scrollContents->setLayout(VLayout);
+    }
     sqlite3_finalize(stmt);
     sqlite3_close(m_OperationsDB);
 }

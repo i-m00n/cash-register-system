@@ -1,0 +1,3774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>cashRegisterSystem2Class</class>
+ <widget class="QMainWindow" name="cashRegisterSystem2Class">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1366</width>
+    <height>823</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>cashRegisterSystem2</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">#centralWidget{background-color:rgba(185,191,193,0.3);
+}
+</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_10">
+    <item row="0" column="0">
+     <widget class="QFrame" name="nav_frame">
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border:none;
+font-size:15px;
+font-weight:bold;
+color:rgb(97, 90, 84);
+}
+QPushButton::hover{
+color:black;
+border-bottom:1px  solid black;
+}
+QFrame{
+border-radius:3px;
+background-color: rgba(248, 170, 112,0.7);
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="main_menu">
+         <property name="minimumSize">
+          <size>
+           <width>110</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>القائمة الرئيسية</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="product_menu">
+         <property name="minimumSize">
+          <size>
+           <width>110</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>قائمة السلع</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="customers_menu">
+         <property name="minimumSize">
+          <size>
+           <width>110</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>قائمة العملاء</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="go_to_admin_form">
+         <property name="minimumSize">
+          <size>
+           <width>110</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>صفحة الادمن</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="go_to_sales_preview_user">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>عرض المشتريات</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="logout">
+         <property name="minimumSize">
+          <size>
+           <width>110</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>تسجيل خروج</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QStackedWidget" name="formsStackedWidget">
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="login">
+       <property name="maximumSize">
+        <size>
+         <width>1366</width>
+         <height>768</height>
+        </size>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QFrame" name="Login_frame">
+          <property name="cursor">
+           <cursorShape>ArrowCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#login_btn{
+border-radius:5px;
+font-size:18px;
+background:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #c8ab97, stop: 1 #e2d4c9);
+color:#313131;
+font-weight:bold;
+margin:5px;
+}
+#login_btn::hover{
+background-color:#e2d4c9;
+}
+#Login_frame{
+background-image: url(:/cashRegisterSystem2/icons/Background.jpg);   
+ border-radius: 10px;
+}
+#username_field,#password_field{
+border-bottom: 2px solid  #c8ab97;
+border-radius:1px;
+color:#958071;
+font-size:16px;
+font-weight:bold;
+margin:0px 5px;
+background:transparent;
+}
+QLabel {
+font-size:18px;
+font-weight:bold;
+background-color:black;
+border-radius:0;
+border:none;
+background:transparent;
+margin-right:5px;
+background-image: url(:/logo/logo/username.jpg);
+width:16px;
+height:16px;
+}
+QGridLayout{
+border-radius:2px;
+}
+#gridFrame{
+background-color:rgba(185,191,193,0.5);
+border-radius:50%;
+}
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="2" column="3">
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>670</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="2">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="2">
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="0">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="2" alignment="Qt::AlignTop">
+            <widget class="QFrame" name="gridFrame">
+             <property name="minimumSize">
+              <size>
+               <width>400</width>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_11">
+              <item row="1" column="2">
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="1">
+               <spacer name="verticalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="1">
+               <spacer name="verticalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="1" column="1">
+               <layout class="QGridLayout" name="gridLayout_8">
+                <item row="3" column="0" colspan="2">
+                 <widget class="QPushButton" name="login_btn">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>دخول</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="username_field">
+                  <property name="minimumSize">
+                   <size>
+                    <width>196</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>300</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLineEdit" name="password_field">
+                  <property name="minimumSize">
+                   <size>
+                    <width>196</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>300</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                 <widget class="QPushButton" name="username_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>32</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background:transparent;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>:/cashRegisterSystem2/icons/user (1).png</normaloff>
+                    <normalon>:/cashRegisterSystem2/icons/profile.png</normalon>:/cashRegisterSystem2/icons/user (1).png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QPushButton" name="passwordlabel">
+                  <property name="styleSheet">
+                   <string notr="true">border:none;
+background:transparent;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="cashRegisterSystem.qrc">
+                    <normaloff>:/cashRegisterSystem2/icons/padlock.png</normaloff>:/cashRegisterSystem2/icons/padlock.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="user_main_form">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0">
+         <widget class="QFrame" name="user_main_frame">
+          <property name="styleSheet">
+           <string notr="true">QListWidget{
+border: 2px solid rgba(200,171,151,0.5);
+background-color:rgba(240,240,240,0.7);
+border-radius:10px;
+}
+QScrollArea{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+#user_phone_number_label{
+border:none;
+}
+QLineEdit{
+background:transparent;
+border-radius:2px;
+border-bottom:2px solid rgba(200,171,151,0.5);
+letter-spacing: 2px;
+color:rgba(120, 91, 71, 1);
+font-size:14px;
+font-weight:bold;
+
+}
+#user_check_discount{
+padding:2px;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+#user_check_discount::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+
+}
+#user_sell{
+font-size:16px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+padding:5px;
+}
+#user_retrieve{
+font-size:16px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+padding:5px;
+}
+#user_retrieve::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#user_sell::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#user_cancel_order{
+padding:2px;
+border:none;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+
+}
+#user_cancel_order::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+QListWidget::item { 
+margin:5px;
+padding:5px;
+ }
+QListWidget::item::hover{
+background-color:rgba(200,171,151,0.5);
+border-radius:5px;
+}
+QListWidget::item:selected{
+background-color:rgba(200,171,151,1);
+color:black;
+}
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="1">
+            <widget class="QFrame" name="user_products_frame">
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_7">
+              <item row="0" column="0">
+               <widget class="QScrollArea" name="user_products_scroll_area">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="user_products_scroll_area_content">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>96</width>
+                   <height>26</height>
+                  </rect>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_2">
+                  <item>
+                   <layout class="QVBoxLayout" name="user_productsVerticalLayout"/>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QFrame" name="user_cart_frame">
+             <property name="minimumSize">
+              <size>
+               <width>350</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>300</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="1" column="0" colspan="2">
+               <layout class="QGridLayout" name="user_gridLayout_7">
+                <item row="0" column="2">
+                 <widget class="QPushButton" name="user_phone_number_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>35</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>icons/buying-on-smartphone.png</normaloff>
+                    <normalon>:/cashRegisterSystem2/Background.jpg</normalon>icons/buying-on-smartphone.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0" colspan="2">
+                 <widget class="QLineEdit" name="user_phone_number">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QScrollArea" name="user_cartScrollArea">
+                <property name="minimumSize">
+                 <size>
+                  <width>280</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>550</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="user_cart_contents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>276</width>
+                   <height>26</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <widget class="QWidget" name="layoutWidget">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>19</y>
+                    <width>311</width>
+                    <height>511</height>
+                   </rect>
+                  </property>
+                  <layout class="QVBoxLayout" name="user_cartVerticalLayout"/>
+                 </widget>
+                </widget>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <layout class="QHBoxLayout" name="user_horizontalLayout_4">
+                <item>
+                 <widget class="QPushButton" name="user_check_discount">
+                  <property name="minimumSize">
+                   <size>
+                    <width>32</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>icons/coupon.png</normaloff>icons/coupon.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="user_price_after">
+                  <property name="styleSheet">
+                   <string notr="true">border: none;
+color:rgba(120, 91, 71, 1);
+font-weight: bold;
+font-size: 14px;</string>
+                  </property>
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="user_price_after_const">
+                  <property name="styleSheet">
+                   <string notr="true">border: none;
+font-weight: bold;
+font-size: 16px;
+color:rgba(120, 91, 71, 1)
+
+
+
+
+</string>
+                  </property>
+                  <property name="text">
+                   <string>السعر بعد الخصم:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="user_price_before">
+                  <property name="styleSheet">
+                   <string notr="true">border: none;
+font-size: 14px;</string>
+                  </property>
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="user_price_before_const">
+                  <property name="styleSheet">
+                   <string notr="true">border: none;
+font-size: 16px;
+</string>
+                  </property>
+                  <property name="text">
+                   <string>السعر قبل الخصم:</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="3" column="0" colspan="2">
+               <layout class="QHBoxLayout" name="user_horizontalLayout_5">
+                <item>
+                 <widget class="QPushButton" name="user_cancel_order">
+                  <property name="minimumSize">
+                   <size>
+                    <width>32</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>icons/empty-cart.png</normaloff>icons/empty-cart.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="user_retrieve">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>استرجاع</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="user_sell">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>بيع</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QFrame" name="user_categories_list_frame">
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="0" column="0">
+               <widget class="QListWidget" name="user_categories_list">
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 16px;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="admin_form">
+       <layout class="QGridLayout" name="gridLayout_20">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame">
+          <property name="styleSheet">
+           <string notr="true">#control_frame{
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #d9c4b6, stop: 1 #faf7f5);
+border:none;
+border-radius: 5px;
+}
+#opType{
+padding:2px;
+border:none;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+
+}
+#opType::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+#OPsearch{
+font-size:14px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+padding:2px;
+}
+#OPsearch::hover{
+background-color: rgba(200,171,151,0.5);
+}
+QComboBox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+color:rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+#date_search::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+}
+#date_search::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#date_search{
+padding:2px;
+border:none;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+
+QPushButton::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#day_total_income{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+QPlainTextEdit,QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #474a4c ;
+font-size:15px;
+color:#474a4c;
+}
+QComboBox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+color:rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+QComboBox::down-arrow::hover{
+border-radius:5px;
+}
+QComboBox::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+QComboBox{
+background:transparent;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+padding:2px;
+margin-bottom:5px;
+}
+
+#controllingPrice{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#controllingQuantity{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#controllingProducts{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#controllingCategories{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#categoryName{
+background:transparent;
+border:none;
+border-bottom:1px solid #474a4c ;
+font-size:15px;
+color:#474a4c;
+}
+QPushButton{
+font-size:14px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+padding:1px;
+}
+#add_quantity,#add_category,#add_item{
+margin-bottom:2px;
+}
+label_2,label,label_3,label_12{
+margin-bottom:5px;
+}
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_21">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_4">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_44">
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_23">
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+font-weight: bold;
+margin-right:5px;
+color:rgba(120, 91, 71, 1)
+</string>
+                </property>
+                <property name="text">
+                 <string>عمليات البيع:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QFrame" name="return_operations_frame">
+                <property name="styleSheet">
+                 <string notr="true">#scrollArea_6{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_47">
+                 <item row="0" column="0">
+                  <widget class="QScrollArea" name="scrollArea_6">
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="return_operations_contents">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>96</width>
+                      <height>26</height>
+                     </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_48">
+                     <item row="0" column="0">
+                      <layout class="QVBoxLayout" name="return_VLayout"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="label_25">
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+font-weight: bold;
+margin-right:5px;
+color:rgba(120, 91, 71, 1)
+</string>
+                </property>
+                <property name="text">
+                 <string>عمليات استرجاع:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_24">
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+font-weight: bold;
+margin-right:5px;
+color:rgba(120, 91, 71, 1)
+</string>
+                </property>
+                <property name="text">
+                 <string>اجمالي عمليات البيع و الاسترجاع:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QFrame" name="sell_operations_frame">
+                <property name="styleSheet">
+                 <string notr="true">#scrollArea_5{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_45">
+                 <item row="0" column="0">
+                  <widget class="QScrollArea" name="scrollArea_5">
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="sell_operations_contents">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>96</width>
+                      <height>26</height>
+                     </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_46">
+                     <item row="0" column="0">
+                      <layout class="QVBoxLayout" name="sell_VLayout"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QFrame" name="total_operations_frame">
+                <property name="styleSheet">
+                 <string notr="true">#scrollArea_7{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_49">
+                 <item row="0" column="0">
+                  <widget class="QScrollArea" name="scrollArea_7">
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="total_operations_contents">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>96</width>
+                      <height>26</height>
+                     </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_50">
+                     <item row="0" column="0">
+                      <layout class="QVBoxLayout" name="total_VLayout"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item>
+              <spacer name="verticalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_14">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px;
+font-size: 16px;</string>
+               </property>
+               <property name="text">
+                <string>نوع الطلب:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="opType">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">height: 25px</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>الكل</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>طلب عادي</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>طلب اونلاين</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>طلب جملة</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_11">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px;
+font-size: 16px;</string>
+               </property>
+               <property name="text">
+                <string>اختر التاريخ:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <widget class="QDateEdit" name="date_search_from">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">height: 25px</string>
+                 </property>
+                 <property name="displayFormat">
+                  <string>d/M/yyyy</string>
+                 </property>
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                 <property name="date">
+                  <date>
+                   <year>2002</year>
+                   <month>10</month>
+                   <day>24</day>
+                  </date>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_4">
+                 <property name="text">
+                  <string>من</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <item>
+                <widget class="QDateEdit" name="date_search_to">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">height: 25px</string>
+                 </property>
+                 <property name="displayFormat">
+                  <string>d/M/yyyy</string>
+                 </property>
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                 <property name="date">
+                  <date>
+                   <year>2002</year>
+                   <month>10</month>
+                   <day>24</day>
+                  </date>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_5">
+                 <property name="text">
+                  <string>الى</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QPushButton" name="OPsearch">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">height: 30px;</string>
+               </property>
+               <property name="text">
+                <string>بحث</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <widget class="QFrame" name="Total_of_the_day">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>70</height>
+              </size>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_18">
+              <item row="1" column="0">
+               <widget class="QTextBrowser" name="day_total_income">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="label_26">
+                <property name="minimumSize">
+                 <size>
+                  <width>120</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>120</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+font-weight: bold;
+color:rgba(120, 91, 71, 1)
+</string>
+                </property>
+                <property name="text">
+                 <string>اجمالي اليوم</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <spacer name="horizontalSpacer_22">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>10</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="edit_admin">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">height: 30px;</string>
+             </property>
+             <property name="text">
+              <string>تعديل الادمن</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="customers_form">
+       <layout class="QGridLayout" name="gridLayout_33">
+        <item row="0" column="0">
+         <widget class="QFrame" name="customers_frame">
+          <property name="styleSheet">
+           <string notr="true">QLabel{
+font-size:16px;
+font-weight:bold;
+padding:2px;
+}
+QPushButton{
+font-size:15px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+margin-left:5px;
+padding:10px;
+}
+QPushButton::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#add_customer_frame{
+border:1px solid black;
+border-radius:10px;
+background-color: rgba(200,171,151,0.5);
+padding:10px 0px;
+}
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #323638 ;
+font-size:15px;
+color:#323638;
+}
+QComboBox{
+padding:2px;
+border-radius:2px;
+font-size:15px;
+}
+
+#tableView{
+border-radius:10px;
+border: 2px solid rgba(200,171,151,0.5);
+background-color:rgba(245,250,245,0.5);
+}
+QComboBox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+color:rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+QComboBox::down-arrow::hover{
+border-radius:5px;
+}
+QComboBox::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+QComboBox{
+background:transparent;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+padding:2px;
+}
+
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_32">
+           <item row="1" column="0">
+            <widget class="QFrame" name="frame_2">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_29">
+              <item row="0" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <item>
+                 <widget class="QPushButton" name="Search_btn">
+                  <property name="minimumSize">
+                   <size>
+                    <width>200</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>بحث</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_14">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="ranksearch">
+                  <property name="minimumSize">
+                   <size>
+                    <width>200</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>الكل</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>عميل عادي</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>عميل مهم</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>طالب</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_33">
+                  <property name="styleSheet">
+                   <string notr="true">font-weight:bold;
+font-size:18px;</string>
+                  </property>
+                  <property name="text">
+                   <string>بحث بالفئة</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="phoneSearch">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_34">
+                  <property name="styleSheet">
+                   <string notr="true">font-weight:bold;
+font-size:18px;</string>
+                  </property>
+                  <property name="text">
+                   <string>بحث برقم الهاتف</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="nameSearch">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_35">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font-weight:bold;
+font-size:18px;</string>
+                  </property>
+                  <property name="text">
+                   <string>بحث بالاسم</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QFrame" name="add_customer_frame">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_31">
+              <item row="0" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_13">
+                <item>
+                 <widget class="QPushButton" name="remove_customer">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>حذف</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="add_new">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>إضافة</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_15">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="class_box">
+                  <property name="minimumSize">
+                   <size>
+                    <width>200</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="editable">
+                   <bool>false</bool>
+                  </property>
+                  <property name="currentText">
+                   <string/>
+                  </property>
+                  <property name="currentIndex">
+                   <number>-1</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="classLable">
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>تصنيف العميل</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="new_customer_phone"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="phoneLable">
+                  <property name="text">
+                   <string>رقم الموبايل</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="new_customer_name"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="nameLable">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>اسم العميل</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QTableView" name="tableView">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="products_form">
+       <layout class="QGridLayout" name="gridLayout_37">
+        <item row="0" column="0">
+         <widget class="QFrame" name="search_products_frame">
+          <property name="styleSheet">
+           <string notr="true">QLabel{
+padding:5px;
+}
+QComboBox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+color:rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+QComboBox::down-arrow::hover{
+border-radius:5px;
+}
+QComboBox::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+QComboBox{
+background:transparent;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+padding:2px;
+}
+
+QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #323638 ;
+font-size:15px;
+color:#323638;
+}
+#frame_3{
+border:1px solid black;
+border-radius:10px;
+background-color: rgba(200,171,151,0.5);
+padding:10px 0px;
+}
+#prodtable{
+border-radius:10px;
+border: 2px solid rgba(200,171,151,0.5);
+background-color:rgba(245,250,245,0.5);
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_38">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_3">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_35">
+              <item row="0" column="0">
+               <layout class="QGridLayout" name="gridLayout_36">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_17">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="6">
+                 <widget class="QLabel" name="ProdNameLabel">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font-weight:bold;
+font-size:18px;</string>
+                  </property>
+                  <property name="text">
+                   <string>اسم السلعة</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="5">
+                 <widget class="QLineEdit" name="ProdNameSearch">
+                  <property name="maximumSize">
+                   <size>
+                    <width>300</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QComboBox" name="ProdTypeSearch">
+                  <property name="minimumSize">
+                   <size>
+                    <width>200</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>الكل</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="searchprobuctsBTN">
+                  <property name="minimumSize">
+                   <size>
+                    <width>200</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+font-size:15px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+margin-left:5px;
+padding:10px;
+}
+QPushButton::hover{
+background-color: rgba(200,171,151,0.5);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>بحث</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QLabel" name="ProdTypeLabel">
+                  <property name="styleSheet">
+                   <string notr="true">font-weight:bold;
+font-size:18px;</string>
+                  </property>
+                  <property name="text">
+                   <string>نوع السلعة</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="4">
+                 <spacer name="horizontalSpacer_18">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QTableView" name="prodtable"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="admin_main_form">
+       <layout class="QGridLayout" name="gridLayout_17">
+        <item row="0" column="0">
+         <widget class="QFrame" name="admin_main_frame">
+          <property name="styleSheet">
+           <string notr="true">QListWidget{
+border: 2px solid rgba(200,171,151,0.5);
+background-color:rgba(240,240,240,0.7);
+border-radius:10px;
+}
+QScrollArea{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+#admin_phone_number_label{
+border:none;
+}
+QLineEdit{
+background:transparent;
+border-radius:2px;
+border-bottom:2px solid rgba(200,171,151,0.5);
+letter-spacing: 2px;
+color:rgba(120, 91, 71, 1);
+font-weight:bold;
+margin-bottom:5px;
+
+}
+#admin_check_discount{
+padding:2px;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+#admin_check_discount::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+
+}
+#admin_sell{
+font-size:16px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+margin-left:5px;
+padding:5px;
+}
+#admin_retrieve{
+font-size:16px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+padding:5px;
+}
+#admin_retrieve::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#admin_sell::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#admin_cancel_order{
+padding:2px;
+border:none;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+
+}
+#admin_cancel_order::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+#discount_spinbox{
+border:1px solid  rgba(120, 91, 71, 1) ;
+border-radius:5px;
+background:transparent;
+}
+#discount_spinbox::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+#discount_spinbox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+}
+#discount_spinbox::up-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-up.png);
+}
+
+QComboBox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+color:rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+QComboBox::down-arrow::hover{
+border-radius:5px;
+}
+QComboBox::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+QComboBox{
+background:transparent;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+padding:2px;
+}
+QListWidget::item { 
+margin:5px;
+padding:5px;
+ }
+QListWidget::item::hover{
+background-color:rgba(200,171,151,0.5);
+border-radius:5px;
+}
+QListWidget::item:selected{
+background-color:rgba(200,171,151,1);
+color:black;
+border:none;
+}
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="1">
+            <widget class="QFrame" name="admin_products_frame">
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_13">
+              <item row="0" column="0">
+               <widget class="QScrollArea" name="admin_products_scroll_area">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="admin_products_scroll_area_content">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>674</width>
+                   <height>634</height>
+                  </rect>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout">
+                  <item>
+                   <layout class="QVBoxLayout" name="admin_productsVerticalLayout"/>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QFrame" name="admin_cart_frame">
+             <property name="minimumSize">
+              <size>
+               <width>350</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_15">
+              <item row="1" column="0" colspan="2">
+               <layout class="QGridLayout" name="gridLayout_16">
+                <item row="1" column="2" colspan="2">
+                 <widget class="QComboBox" name="admin_order_type_cmb">
+                  <property name="minimumSize">
+                   <size>
+                    <width>130</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="placeholderText">
+                   <string>نوع الطلب</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>عادي</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>اونلاين</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>جملة</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QPushButton" name="admin_phone_number_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>35</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="cashRegisterSystem.qrc">
+                    <normaloff>:/cashRegisterSystem2/icons/buying-on-smartphone.png</normaloff>:/cashRegisterSystem2/icons/buying-on-smartphone.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="admin_discount_label">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>80</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font-size:15px;</string>
+                  </property>
+                  <property name="text">
+                   <string>     الخصم:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QDoubleSpinBox" name="discount_spinbox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>80</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>100</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0" colspan="3">
+                 <widget class="QLineEdit" name="admin_phone_number">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QScrollArea" name="admin_cartScrollArea">
+                <property name="minimumSize">
+                 <size>
+                  <width>280</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>500</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="admin_cart_contents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>326</width>
+                   <height>480</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <widget class="QWidget" name="layoutWidget">
+                  <property name="geometry">
+                   <rect>
+                    <x>9</x>
+                    <y>9</y>
+                    <width>311</width>
+                    <height>481</height>
+                   </rect>
+                  </property>
+                  <layout class="QVBoxLayout" name="admin_cartVerticalLayout"/>
+                 </widget>
+                </widget>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QPushButton" name="admin_check_discount">
+                  <property name="minimumSize">
+                   <size>
+                    <width>32</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="cashRegisterSystem.qrc">
+                    <normaloff>:/cashRegisterSystem2/icons/coupon.png</normaloff>:/cashRegisterSystem2/icons/coupon.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="admin_price_after">
+                  <property name="styleSheet">
+                   <string notr="true">border: none;
+font-weight: bold;
+font-size: 13px;
+color:rgba(120, 91, 71, 1)
+
+
+
+
+</string>
+                  </property>
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="admin_price_after_const">
+                  <property name="styleSheet">
+                   <string notr="true">border: none;
+font-weight: bold;
+font-size: 15px;
+color:rgba(120, 91, 71, 1)
+
+
+
+
+</string>
+                  </property>
+                  <property name="text">
+                   <string>السعر بعد الخصم:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="admin_price_before">
+                  <property name="styleSheet">
+                   <string notr="true">border: none;
+font-size: 13px</string>
+                  </property>
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="admin_price_before_const">
+                  <property name="styleSheet">
+                   <string notr="true">border: none;
+font-size: 15px</string>
+                  </property>
+                  <property name="text">
+                   <string>السعر قبل الخصم:</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="3" column="0" colspan="2">
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <item>
+                 <widget class="QPushButton" name="admin_cancel_order">
+                  <property name="minimumSize">
+                   <size>
+                    <width>32</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="cashRegisterSystem.qrc">
+                    <normaloff>:/cashRegisterSystem2/icons/empty-cart.png</normaloff>:/cashRegisterSystem2/icons/empty-cart.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="admin_retrieve">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>استرجاع</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="admin_sell">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>بيع</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QFrame" name="admin_categories_list_frame">
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_12">
+              <item row="0" column="0">
+               <widget class="QListWidget" name="admin_categories_list">
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 16px;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page">
+       <layout class="QGridLayout" name="gridLayout_14">
+        <item row="0" column="0">
+         <widget class="QTextBrowser" name="receipt"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <widget class="QFrame" name="control_frame">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>230</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+border:1px solid #474747;
+border-radius:5px;
+}
+QLabel{
+font-size:20px;
+font-weight:bold;
+}
+#control_frame{
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #d9c4b6, stop: 1 #faf7f5);
+border:none;
+border-radius: 5px;
+}
+#opType{
+padding:2px;
+border:none;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+
+}
+#opType::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+#OPsearch{
+font-size:14px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+padding:2px;
+}
+#OPsearch::hover{
+background-color: rgba(200,171,151,0.5);
+}
+QComboBox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+color:rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+#date_search::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+}
+#date_search::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#date_search{
+padding:2px;
+border:none;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+
+QPushButton::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#day_total_income{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+QPlainTextEdit,QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #474a4c ;
+font-size:15px;
+color:#474a4c;
+}
+QComboBox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+color:rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+QComboBox::down-arrow::hover{
+border-radius:5px;
+}
+QComboBox::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+QComboBox{
+background:transparent;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+padding:2px;
+margin-bottom:5px;
+}
+
+#controllingPrice{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#controllingQuantity{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#controllingProducts{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#controllingCategories{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#categoryName{
+background:transparent;
+border:none;
+border-bottom:1px solid #474a4c ;
+font-size:15px;
+color:#474a4c;
+}
+QPushButton{
+font-size:14px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+padding:1px;
+}
+#add_quantity,#add_category,#add_item{
+margin-bottom:2px;
+}
+label_2,label,label_3,label_12{
+margin-bottom:5px;
+}
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_52">
+           <item row="0" column="1" colspan="2">
+            <widget class="QFrame" name="controllingProducts">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_55">
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_10">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string>النوع</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="6">
+               <widget class="QLabel" name="label_15">
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string>اسم الغرض</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <spacer name="horizontalSpacer_25">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="7">
+               <widget class="QLabel" name="label_16">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border:none;</string>
+                </property>
+                <property name="text">
+                 <string>اضافة/حذف غرض:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QComboBox" name="item_type_item">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QLabel" name="label_17">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string>السعر</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="add_item">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>23</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>اضافة</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="label_18">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string>الكمية</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="remove_item">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>حذف</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="6">
+               <widget class="QLineEdit" name="item_name_item"/>
+              </item>
+              <item row="2" column="4">
+               <widget class="QLineEdit" name="item_price_item"/>
+              </item>
+              <item row="2" column="3">
+               <widget class="QLineEdit" name="item_quantity_item"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QFrame" name="controllingQuantity">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_54">
+              <item row="2" column="3">
+               <widget class="QComboBox" name="item_name_quantity">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>1000</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="add_quantity">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>اضافة</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="remove_quantity">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>حذف</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <spacer name="horizontalSpacer_24">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_22">
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string>الكمية</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLineEdit" name="item_quantity_quantity"/>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="label_31">
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string>اسم الغرض</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="4">
+               <widget class="QLabel" name="label_9">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size:20px;
+border:none;</string>
+                </property>
+                <property name="text">
+                 <string>اضافة/حذف كمية:</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="QFrame" name="controllingCategories">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_19">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="add_category">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>اضافة</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLabel" name="label_19">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border:none;</string>
+                </property>
+                <property name="text">
+                 <string>اضافة/حذف فئة:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_32">
+                <property name="styleSheet">
+                 <string notr="true">border:none;</string>
+                </property>
+                <property name="text">
+                 <string>اسم الفئة</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <spacer name="horizontalSpacer_7">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLineEdit" name="category_name">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>256</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="remove_category">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>حذف</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QFrame" name="controllingPrice">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_53">
+              <item row="1" column="5">
+               <widget class="QLabel" name="label_30">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>200</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string>اسم الغرض</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLabel" name="label_29">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: none;</string>
+                </property>
+                <property name="text">
+                 <string>السعر</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="5">
+               <widget class="QComboBox" name="item_name_price">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <spacer name="horizontalSpacer_23">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="6">
+               <widget class="QLabel" name="label_13">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 16px;
+border:none;</string>
+                </property>
+                <property name="text">
+                 <string>تعديل السعر:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3">
+               <widget class="QLineEdit" name="item_price_price"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="edit_price">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>تعديل</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="1" colspan="2">
+            <widget class="QFrame" name="critical_options">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <spacer name="horizontalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>1153</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="delete_all_products">
+                <property name="minimumSize">
+                 <size>
+                  <width>130</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* Default styles */
+QPushButton {
+	background-color: #FF393C;
+	color: #DCDCDC;
+}
+/* Hover styles */
+QPushButton:hover {
+  background-color: #FF7073;
+}</string>
+                </property>
+                <property name="text">
+                 <string>حذف جميع المنتجات</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="user_sales_preview">
+       <layout class="QGridLayout" name="gridLayout_28">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_5">
+          <property name="styleSheet">
+           <string notr="true">#control_frame{
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #d9c4b6, stop: 1 #faf7f5);
+border:none;
+border-radius: 5px;
+}
+#opType{
+padding:2px;
+border:none;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+
+}
+#opType::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+#OPsearch{
+font-size:14px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+padding:2px;
+}
+#OPsearch::hover{
+background-color: rgba(200,171,151,0.5);
+}
+QComboBox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+color:rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+#date_search::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+}
+#date_search::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#date_search{
+padding:2px;
+border:none;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+
+QPushButton::hover{
+background-color: rgba(200,171,151,0.5);
+}
+#day_total_income{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+QPlainTextEdit,QLineEdit{
+background:transparent;
+border:none;
+border-bottom:1px solid #474a4c ;
+font-size:15px;
+color:#474a4c;
+}
+QComboBox::down-arrow{
+image:url(:/cashRegisterSystem2/media/arrow-down.png);
+color:rgba(120, 91, 71, 1);
+border-radius:5px;
+}
+QComboBox::down-arrow::hover{
+border-radius:5px;
+}
+QComboBox::hover{
+background-color: rgba(200,171,151,0.5);
+border:none;
+}
+QComboBox{
+background:transparent;
+border:1px solid rgba(120, 91, 71, 1);
+border-radius:5px;
+padding:2px;
+margin-bottom:5px;
+}
+
+#controllingPrice{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#controllingQuantity{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#controllingProducts{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#controllingCategories{ 
+border: 1px solid #474747;
+border-radius: 7px;
+}
+
+#categoryName{
+background:transparent;
+border:none;
+border-bottom:1px solid #474a4c ;
+font-size:15px;
+color:#474a4c;
+}
+QPushButton{
+font-size:14px;
+background-color:rgba(185,191,193,1);
+color:#323638;
+border-radius:10px;
+font-weight:bold;
+padding:1px;
+}
+#add_quantity,#add_category,#add_item{
+margin-bottom:2px;
+}
+label_2,label,label_3,label_12{
+margin-bottom:5px;
+}
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_24">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_6">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_76">
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_48">
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+font-weight: bold;
+margin-right:5px;
+color:rgba(120, 91, 71, 1)
+</string>
+                </property>
+                <property name="text">
+                 <string>عمليات البيع:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QFrame" name="return_operations_frame_user">
+                <property name="styleSheet">
+                 <string notr="true">#scrollArea_6{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_77">
+                 <item row="0" column="0">
+                  <widget class="QScrollArea" name="scrollArea_17">
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="return_operations_contents_user">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>98</width>
+                      <height>28</height>
+                     </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_78">
+                     <item row="0" column="0">
+                      <layout class="QVBoxLayout" name="return_VLayout_user"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="label_49">
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+font-weight: bold;
+margin-right:5px;
+color:rgba(120, 91, 71, 1)
+</string>
+                </property>
+                <property name="text">
+                 <string>عمليات استرجاع:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_50">
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+font-weight: bold;
+margin-right:5px;
+color:rgba(120, 91, 71, 1)
+</string>
+                </property>
+                <property name="text">
+                 <string>اجمالي عمليات البيع و الاسترجاع:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QFrame" name="sell_operations_frame_user">
+                <property name="styleSheet">
+                 <string notr="true">#scrollArea_5{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_79">
+                 <item row="0" column="0">
+                  <widget class="QScrollArea" name="scrollArea_18">
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="sell_operations_contents_user">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>98</width>
+                      <height>28</height>
+                     </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_80">
+                     <item row="0" column="0">
+                      <layout class="QVBoxLayout" name="sell_VLayout_user"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QFrame" name="total_operations_frame_user">
+                <property name="styleSheet">
+                 <string notr="true">#scrollArea_7{
+border:2px solid  #e2d4c9;
+border-radius:5px;
+background-color:rgba(245,250,245,0.5);
+}
+</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_81">
+                 <item row="0" column="0">
+                  <widget class="QScrollArea" name="scrollArea_19">
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="total_operations_contents_user">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>98</width>
+                      <height>28</height>
+                     </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_82">
+                     <item row="0" column="0">
+                      <layout class="QVBoxLayout" name="total_VLayout_user"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <layout class="QVBoxLayout" name="verticalLayout_12">
+             <item>
+              <spacer name="verticalSpacer_11">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_51">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px;
+font-size: 16px;</string>
+               </property>
+               <property name="text">
+                <string>نوع الطلب:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="opType_user">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">height: 25px</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>الكل</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>طلب عادي</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>طلب اونلاين</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>طلب جملة</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QDateEdit" name="dateEdit_user"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="OPsearch_user">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">height: 30px;</string>
+               </property>
+               <property name="text">
+                <string>بحث</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_12">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <widget class="QFrame" name="Total_of_the_day_user">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>70</height>
+              </size>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_27">
+              <item row="1" column="0">
+               <widget class="QTextBrowser" name="day_total_income_user">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="label_55">
+                <property name="minimumSize">
+                 <size>
+                  <width>120</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>120</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font-size: 18px;
+font-weight: bold;
+color:rgba(120, 91, 71, 1)
+</string>
+                </property>
+                <property name="text">
+                 <string>اجمالي اليوم</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <spacer name="horizontalSpacer_user">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>10</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1366</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="cashRegisterSystem.qrc"/>
+ </resources>
+ <connections/>
+</ui>

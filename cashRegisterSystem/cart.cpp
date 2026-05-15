@@ -246,9 +246,9 @@ void cashRegisterSystem::printReceipt(QLabel* priceAfter, QLabel* priceBefore) {
     QPrinter printer(QPrinter::HighResolution);
     printer.setPrinterName("My Printer");
 
-    QPageSize pageSize(QSizeF(160, 100), QPageSize::Millimeter, "Custom 80x160");
-    QPageLayout pageLayout(pageSize, QPageLayout::Portrait, QMarginsF(0, 0, 0, 0)); // create a page layout
-    printer.setPageLayout(pageLayout); // set the page layout for the printer
+    // QPageSize pageSize(QSizeF(160, 100), QPageSize::Millimeter, "Custom 80x160");
+    // QPageLayout pageLayout(pageSize, QPageLayout::Portrait, QMarginsF(0, 0, 0, 0)); // create a page layout
+    // printer.setPageLayout(pageLayout); // set the page layout for the printer
 
     float Discount = abs((1 - (priceAfter->text().toFloat() / priceBefore->text().toFloat())) * 100);
     QDateTime currentDateTime = QDateTime::currentDateTime();
@@ -258,11 +258,17 @@ void cashRegisterSystem::printReceipt(QLabel* priceAfter, QLabel* priceBefore) {
 
         QString header =
             "<body style = 'text-align: center'; >"
-            "<h1>Ali Baba!</h1>"
-            "<p>+20 10 9226 2446 </p>"
-            "<p>3 Taha Hussein El yamama Zamalek Center</p>"
+            "<h1>TITO`S Coffee</h1>"
+            "<p>+20 11 1648 0658 </p>"
+            "<p>العنوان: 208ط شارع البوابة التانية القديمه بجوار جزارة الهضبة حدايق الاهرام</p>"
             "<br>"
             "_______________________________________";
+            // "<body style = 'text-align: center'; >"
+            // "<h1>Ali Baba!</h1>"
+            // "<p>+20 10 9226 2446 </p>"
+            // "<p>3 Taha Hussein El yamama Zamalek Center</p>"
+            // "<br>"
+            // "_______________________________________";
 
         QString body = "";
 

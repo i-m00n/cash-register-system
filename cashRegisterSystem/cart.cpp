@@ -277,12 +277,15 @@ char cashRegisterSystem::updateType(char type) {
 }
 
 void cashRegisterSystem::printReceipt(QLabel* priceAfter, QLabel* priceBefore) {
-    QPrinter printer(QPrinter::HighResolution);
+    // 1. Change to ScreenResolution to match UI scale
+    QPrinter printer(QPrinter::ScreenResolution); 
     printer.setPrinterName("My Printer");
 
-    QPageSize pageSize(QSizeF(160, 100), QPageSize::Millimeter, "Custom 80x160");
-    QPageLayout pageLayout(pageSize, QPageLayout::Portrait, QMarginsF(0, 0, 0, 0)); // create a page layout
-    printer.setPageLayout(pageLayout); // set the page layout for the printer
+    // 2. Define the size (80mm width is standard for thermal printers)
+    // We set a very long height (297mm or similar) so the text doesn't get cut off
+    QPageSize pageSize(QSizeF(80, 297), QPageSize::Millimeter);
+    QPageLayout pageLayout(pageSize, QPageLayout::Portrait, QMarginsF(0, 0, 0, 0));
+    printer.setPageLayout(pageLayout);
 
     float Discount = abs((1 - (priceAfter->text().toFloat() / priceBefore->text().toFloat())) * 100);
     QDateTime currentDateTime = QDateTime::currentDateTime();
@@ -290,47 +293,53 @@ void cashRegisterSystem::printReceipt(QLabel* priceAfter, QLabel* priceBefore) {
     QPrintDialog dialog(&printer, this);
     if (dialog.exec() == QDialog::Accepted) {
 
+        // 3. Add a wrapper div with a fixed width to prevent shrinking
+        // and force the font size to be larger for the printer
         QString header =
-            "<body style = 'text-align: center'; >"
-            "<h1>TITO`S Coffee</h1>"
-            "<p>+20 11 1648 0658 </p>"
-            "<p>العنوان: 208ط شارع البوابة التانية القديمه بجوار جزارة الهضبة حدايق الاهرام</p>"
-            "<br>"
-            "_______________________________________";
-            // "<body style = 'text-align: center'; >"
-            // "<h1>Ali Baba!</h1>"
-            // "<p>+20 10 9226 2446 </p>"
-            // "<p>3 Taha Hussein El yamama Zamalek Center</p>"
-            // "<br>"
-            // "_______________________________________";
+            "<div style='width: 280px; font-family: sans-serif; text-align: center;'>"
+            "<h2 style='margin-bottom:0;'>\n\n\nTITO`S Coffee</h2>"
+            "<p style='margin:0;'>+20 11 1648 0658 </p>"
+            "<p style='margin:0; direction: rtl;'>العنوان: 208ط شارع البوابة التانية القديمه بجوار جزارة الهضبة حدايق الاهرام</p>"
+            "<p>________________________________</p>";
 
-        QString body = "";
-
+        QString body = "<table style='width:100%; border-collapse: collapse;'>";
         QHash<QString, QList<QVariant>>::iterator it;
         for (it = myHash.begin(); it != myHash.end(); ++it) {
-            QString key = it.key();
-            QList<QVariant> value = it.value();
-            body += "<p> x" + value.at(0).toString() + "  " + key + "      " + value.at(1).toString() + "EGP</p>";
+            body += QString("<tr>"
+                            "<td style='text-align:left;'>x%1</td>"
+                            "<td style='text-align:center;'>%2</td>"
+                            "<td style='text-align:right;'>%3 EGP</td>"
+                            "</tr>")
+                    .arg(it.value().at(0).toString())
+                    .arg(it.key())
+                    .arg(it.value().at(1).toString());
         }
-        QString price_with_discount_on =
-            "<p>Before Discount: " + priceBefore->text() + "EGP </p>"
-            "<p>Discount: " + QString::number(Discount) + " % </p>"
-            "<p>After Discount:" + priceAfter->text() + "EGP </p>";
-        QString price_with_discount_off =
-            "<p>Total Price: " + priceBefore->text() + "EGP </p>";
+        body += "</table>";
 
-        QString price = (priceAfter->text() == priceBefore->text()) ? price_with_discount_off : price_with_discount_on;
-        QString tail = "_______________________________________"
-            + price +
-            "<p> " + currentDateTime.date().toString() + " " + currentDateTime.time().toString() + " </p>"
-            "<h3>Thanks for ordering!</h3>"
-            "</body>";
+        QString price_content;
+        if (priceAfter->text() == priceBefore->text()) {
+            price_content = "<p style='font-weight:bold;'>Total Price: " + priceBefore->text() + " EGP</p>";
+        } else {
+            price_content = 
+                "<p style='margin:0;'>Before: " + priceBefore->text() + " EGP</p>"
+                "<p style='margin:0;'>Discount: " + QString::number(Discount, 'f', 1) + "%</p>"
+                "<p style='margin:0; font-weight:bold;'>After: " + priceAfter->text() + " EGP</p>";
+        }
 
-        m_ui->receipt->insertHtml(header + body + tail);
+        QString tail = 
+            "<p>________________________________</p>"
+            + price_content +
+            "<p>" + currentDateTime.toString("yyyy-MM-dd HH:mm") + "</p>"
+            "<h3 style='margin-top:10px;'>Thanks for ordering!</h3>"
+            "<h6 style='margin:0;'>Good Coffee, Better mode!</p>"
+            "</div>";
 
-        m_ui->receipt->setAlignment(Qt::AlignCenter);
-        m_ui->receipt->print(&printer);
-        m_ui->receipt->clear();
+        // 4. Important: Use a temporary QTextDocument instead of the UI element
+        // to avoid alignment and clearing issues.
+        QTextDocument doc;
+        doc.setHtml(header + body + tail);
+        doc.setPageSize(printer.pageRect().size()); 
+        doc.print(&printer);
     }
 }
 

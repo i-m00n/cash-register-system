@@ -21,6 +21,7 @@ void cashRegisterSystem::confirmPayOperation_admin(char operationType) {
         // No match found in the database
         goMakeAccount(phoneNumber);
     }
+    m_ui->admin_phone_number->setText(u8"0");
 }
 
 void cashRegisterSystem::on_admin_retrieve_clicked()

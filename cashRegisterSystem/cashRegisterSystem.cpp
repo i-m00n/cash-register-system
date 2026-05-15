@@ -47,6 +47,8 @@ cashRegisterSystem::cashRegisterSystem(QWidget* parent)
     m_ui->user_phone_number->setValidator(validator);
     m_ui->formsStackedWidget->setCurrentIndex(0);
 
+    m_ui->admin_phone_number->setText(u8"0");
+    m_ui->user_phone_number->setText(u8"0");
 }
 
 cashRegisterSystem::~cashRegisterSystem()

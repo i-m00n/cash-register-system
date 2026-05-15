@@ -211,12 +211,37 @@ void cashRegisterSystem::on_name_button_clicked(double quantity, QString name, f
             checkButton, phoneNumberField);
     });
     frame->setObjectName("CartFrame");
-    if (i % 2 == 1) {
-        frame->setStyleSheet("#CartFrame{background-color:rgba(200,200,200,1); border-radius:2px; padding:2px;} QPushButton{font-size:14px;background-color:rgba(200,171,151,0.5);color:#323638;border-radius:10px;font-weight:bold;padding:2px;} QPushButton::hover{background-color: rgba(185, 191, 193, 1);}");
-    }
-    if (i % 2 == 0) {
-        frame->setStyleSheet("#CartFrame{background-color:rgba(200,171,151,0.5); border-radius:2px; padding:2px;} QPushButton{font-size:14px;background-color:rgba(185, 191, 193, 1);color:#323638;border-radius:10px;font-weight:bold;padding:2px;} QPushButton::hover{background-color: rgba(200,171,151,0.5);}");
-    }
+    QString commonInternalStyle = 
+    "QLabel { color: #1A2E23; font-weight: bold; font-size: 14px; border: none; background: transparent; }"
+    "QPushButton { "
+    "  background-color: #1E5C3A; "
+    "  color: #FAFAF6; "
+    "  border-radius: 6px; "
+    "  font-weight: bold; "
+    "  padding: 4px 8px; "
+    "  font-size: 13px; "
+    "}"
+    "QPushButton::hover { background-color: #16432A; }";
+
+if (i % 2 == 0) {
+    frame->setStyleSheet(
+        "#cartItem {"
+        "  background-color: #F5F2EA;" // Darker beige
+        "  border: 1.5px solid #C8B89A;"
+        "  border-radius: 8px;"
+        "  margin: 5px;"
+        "}" + commonInternalStyle
+    );
+} else {
+    frame->setStyleSheet(
+        "#cartItem {"
+        "  background-color: #FAFAF6;" // Lighter cream
+        "  border: 1.5px solid #C8B89A;"
+        "  border-radius: 8px;"
+        "  margin: 5px;"
+        "}" + commonInternalStyle
+    );
+}
 
     i++;
 

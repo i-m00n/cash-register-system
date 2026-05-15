@@ -11,7 +11,8 @@ void cashRegisterSystem::on_add_item_clicked() {
     string Items_Names = m_ui->item_name_item->text().toUtf8().constData();
     string Items_Prices = m_ui->item_price_item->text().toUtf8().constData();
     int Quantity = m_ui->item_quantity_item->text().toInt();
-    string type = m_ui->item_type_item->currentText().toUtf8().constData();
+    QString typeQString = m_ui->item_type_item->currentText();
+    string type = typeQString.toUtf8().constData();   
     db.insertProdRows(Items_Names, Items_Prices, Quantity, type);
     m_ui->item_name_quantity->addItem(QString::fromUtf8(Items_Names.c_str()));
     m_ui->item_name_price->addItem(QString::fromUtf8(Items_Names.c_str()));
@@ -71,6 +72,9 @@ void cashRegisterSystem::on_add_category_clicked() {
 
     // Create a QTextStream object to write to the file
     QTextStream out(&file);
+
+    // ADD THIS LINE:
+    out.setCodec("UTF-8");
 
     // Append the category name to the file followed by a new line character
     out << categoryName << "\n";

@@ -210,36 +210,45 @@ void cashRegisterSystem::on_name_button_clicked(double quantity, QString name, f
         Delete_On_Click(btn, totalPrice, names->text(), quantity, priceBefore, priceAfter,
             checkButton, phoneNumberField);
     });
-    frame->setObjectName("CartFrame");
-    QString commonInternalStyle = 
-    "QLabel { color: #1A2E23; font-weight: bold; font-size: 14px; border: none; background: transparent; }"
+frame->setObjectName("cartItem");
+
+// Common style for internal widgets to prevent them from having white backgrounds
+QString internalStyles = 
+    "QLabel { "
+    "  background: transparent; " // Forces label to show frame color
+    "  color: #1A2E23; "           // Dark green text
+    "  font-weight: bold; "
+    "  border: none; "
+    "  padding: 2px; "
+    "} "
     "QPushButton { "
-    "  background-color: #1E5C3A; "
-    "  color: #FAFAF6; "
+    "  background-color: #1E5C3A; " // Tito's Green
+    "  color: #FAFAF6; "            // Off-white text
     "  border-radius: 6px; "
     "  font-weight: bold; "
-    "  padding: 4px 8px; "
-    "  font-size: 13px; "
-    "}"
-    "QPushButton::hover { background-color: #16432A; }";
+    "  padding: 5px 10px; "
+    "} "
+    "QPushButton::hover { "
+    "  background-color: #2D7A4D; " // Lighter green on hover
+    "}";
 
 if (i % 2 == 0) {
     frame->setStyleSheet(
         "#cartItem {"
-        "  background-color: #F5F2EA;" // Darker beige
+        "  background-color: #F5F2EA;" // Beige background
         "  border: 1.5px solid #C8B89A;"
         "  border-radius: 8px;"
         "  margin: 5px;"
-        "}" + commonInternalStyle
+        "}" + internalStyles
     );
 } else {
     frame->setStyleSheet(
         "#cartItem {"
-        "  background-color: #FAFAF6;" // Lighter cream
+        "  background-color: #FAFAF6;" // Light cream background
         "  border: 1.5px solid #C8B89A;"
         "  border-radius: 8px;"
         "  margin: 5px;"
-        "}" + commonInternalStyle
+        "}" + internalStyles
     );
 }
 
@@ -271,9 +280,9 @@ void cashRegisterSystem::printReceipt(QLabel* priceAfter, QLabel* priceBefore) {
     QPrinter printer(QPrinter::HighResolution);
     printer.setPrinterName("My Printer");
 
-    // QPageSize pageSize(QSizeF(160, 100), QPageSize::Millimeter, "Custom 80x160");
-    // QPageLayout pageLayout(pageSize, QPageLayout::Portrait, QMarginsF(0, 0, 0, 0)); // create a page layout
-    // printer.setPageLayout(pageLayout); // set the page layout for the printer
+    QPageSize pageSize(QSizeF(160, 100), QPageSize::Millimeter, "Custom 80x160");
+    QPageLayout pageLayout(pageSize, QPageLayout::Portrait, QMarginsF(0, 0, 0, 0)); // create a page layout
+    printer.setPageLayout(pageLayout); // set the page layout for the printer
 
     float Discount = abs((1 - (priceAfter->text().toFloat() / priceBefore->text().toFloat())) * 100);
     QDateTime currentDateTime = QDateTime::currentDateTime();

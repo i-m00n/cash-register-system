@@ -15,9 +15,9 @@ cashRegisterSystem::cashRegisterSystem(QWidget* parent)
     m_ui->setupUi(this);
     m_ui->password_field->setEchoMode(QLineEdit::Password);
     i = 0;
-    m_ui->class_box->addItem(QString::fromUtf8("عميل عادي"));
-    m_ui->class_box->addItem(QString::fromUtf8("عميل مهم"));
-    m_ui->class_box->addItem(QString::fromUtf8("طالب"));
+    m_ui->class_box->addItem(u8"عميل عادي");
+    m_ui->class_box->addItem(u8"عميل مهم");
+    m_ui->class_box->addItem(u8"طالب");
     QApplication::setWindowIcon(QIcon("icon.ico"));
     isAdmin = false;
 
@@ -235,6 +235,80 @@ void cashRegisterSystem::populateProductList(QVBoxLayout* productsVerticalLayout
 }
 
 
+void cashRegisterSystem::showAllProducts(QVBoxLayout* productsVerticalLayout, QVBoxLayout* cartVerticalLayout, QLabel* priceBefore, QLabel* priceAfter, QScrollArea* cartScrollArea, QPushButton* checkDiscount, QLineEdit* phoneNumber) {
+    if(!productsVerticalLayout->isEmpty())clearProducts(productsVerticalLayout);
+    for (auto category : clone_categories)
+        populateProductList(productsVerticalLayout, category, cartVerticalLayout, priceBefore, priceAfter, cartScrollArea, checkDiscount, phoneNumber);
+}
+
+void cashRegisterSystem::clearProducts(QVBoxLayout* productsContent) {
+    QLayout* layout = productsContent; // Get the layout of the widget
+    if (layout != nullptr) {
+
+        // Remove and delete the items within the layout
+        QLayoutItem* child = nullptr;
+        while ((child = layout->takeAt(0)) != nullptr) {
+            QWidget* widget = child->widget();
+            if (widget) {
+                layout->removeWidget(widget);
+                delete widget;
+            }
+            delete child;
+        }
+    }
+}
+
+void cashRegisterSystem::showCategoriesList(QListWidget* categoriesList, QScrollArea* productsScrollArea) {
+    if (categoriesList->count() == 0) {
+        if (const_categories.isEmpty()) {
+            QFile file("categories.txt");
+            if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+                return;
+            QTextStream in(&file);
+            in.setCodec("UTF-8");
+            while (!in.atEnd()) {
+                const QString line = in.readLine();
+                categoriesList->addItem(line);
+                const_categories.append(makeLabel(line));
+            }
+        }
+        else {
+            for (auto category : const_categories) {
+                categoriesList->addItem(category->text());
+            }
+        }
+    }
+    clone_categories.clear();
+    makeQListCopy(clone_categories, const_categories);
+
+    //connects
+    connect(categoriesList, &QListWidget::currentRowChanged, [=](int row) {
+        itemClickedHandler(row, productsScrollArea);
+        });
+}
+
+void cashRegisterSystem::itemClickedHandler(int row, QScrollArea* productsScrollArea) {
+    int yMargin = productsScrollArea->height() - clone_categories[row]->height();
+    productsScrollArea->ensureWidgetVisible(clone_categories[row], 0, yMargin);
+}
+
+QLabel* cashRegisterSystem::makeLabel(const QString& content) {
+    QLabel* label = new QLabel(content, this);
+    label->setStyleSheet("font-size:20px;");
+    return label;
+}
+
+void cashRegisterSystem::makeQListCopy(QList<QLabel*>& clone_categories, QList<QLabel*>& const_categories) {
+    for (QLabel* label : const_categories) {
+        QLabel* newLabel = new QLabel(label->text());
+        newLabel->setStyleSheet("font-size:20px;");
+        clone_categories.append(newLabel);
+    }
+}
+
+
+
+
 // void cashRegisterSystem::populateProductList(QVBoxLayout* productsVerticalLayout, QLabel* productType,
 //     QVBoxLayout* cartVerticalLayout, QLabel* priceBefore, QLabel* priceAfter,
 //     QScrollArea* cartScrollArea, QPushButton* checkButton,
@@ -355,73 +429,3 @@ void cashRegisterSystem::populateProductList(QVBoxLayout* productsVerticalLayout
 //     sqlite3_finalize(stmt);
 //     sqlite3_close(m_ProductsDB);
 // }
-
-void cashRegisterSystem::showAllProducts(QVBoxLayout* productsVerticalLayout, QVBoxLayout* cartVerticalLayout, QLabel* priceBefore, QLabel* priceAfter, QScrollArea* cartScrollArea, QPushButton* checkDiscount, QLineEdit* phoneNumber) {
-    if(!productsVerticalLayout->isEmpty())clearProducts(productsVerticalLayout);
-    for (auto category : clone_categories)
-        populateProductList(productsVerticalLayout, category, cartVerticalLayout, priceBefore, priceAfter, cartScrollArea, checkDiscount, phoneNumber);
-}
-
-void cashRegisterSystem::clearProducts(QVBoxLayout* productsContent) {
-    QLayout* layout = productsContent; // Get the layout of the widget
-    if (layout != nullptr) {
-
-        // Remove and delete the items within the layout
-        QLayoutItem* child = nullptr;
-        while ((child = layout->takeAt(0)) != nullptr) {
-            QWidget* widget = child->widget();
-            if (widget) {
-                layout->removeWidget(widget);
-                delete widget;
-            }
-            delete child;
-        }
-    }
-}
-
-void cashRegisterSystem::showCategoriesList(QListWidget* categoriesList, QScrollArea* productsScrollArea) {
-    if (categoriesList->count() == 0) {
-        if (const_categories.isEmpty()) {
-            QFile file("categories.txt");
-            if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-                return;
-            QTextStream in(&file);
-            while (!in.atEnd()) {
-                const QString line = in.readLine();
-                categoriesList->addItem(line);
-                const_categories.append(makeLabel(line));
-            }
-        }
-        else {
-            for (auto category : const_categories) {
-                categoriesList->addItem(category->text());
-            }
-        }
-    }
-    clone_categories.clear();
-    makeQListCopy(clone_categories, const_categories);
-
-    //connects
-    connect(categoriesList, &QListWidget::currentRowChanged, [=](int row) {
-        itemClickedHandler(row, productsScrollArea);
-        });
-}
-
-void cashRegisterSystem::itemClickedHandler(int row, QScrollArea* productsScrollArea) {
-    int yMargin = productsScrollArea->height() - clone_categories[row]->height();
-    productsScrollArea->ensureWidgetVisible(clone_categories[row], 0, yMargin);
-}
-
-QLabel* cashRegisterSystem::makeLabel(const QString& content) {
-    QLabel* label = new QLabel(content, this);
-    label->setStyleSheet("font-size:20px;");
-    return label;
-}
-
-void cashRegisterSystem::makeQListCopy(QList<QLabel*>& clone_categories, QList<QLabel*>& const_categories) {
-    for (QLabel* label : const_categories) {
-        QLabel* newLabel = new QLabel(label->text());
-        newLabel->setStyleSheet("font-size:20px;");
-        clone_categories.append(newLabel);
-    }
-}

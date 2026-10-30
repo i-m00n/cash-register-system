@@ -210,47 +210,13 @@ void cashRegisterSystem::on_name_button_clicked(double quantity, QString name, f
         Delete_On_Click(btn, totalPrice, names->text(), quantity, priceBefore, priceAfter,
             checkButton, phoneNumberField);
     });
-frame->setObjectName("cartItem");
-
-// Common style for internal widgets to prevent them from having white backgrounds
-QString internalStyles = 
-    "QLabel { "
-    "  background: transparent; " // Forces label to show frame color
-    "  color: #1A2E23; "           // Dark green text
-    "  font-weight: bold; "
-    "  border: none; "
-    "  padding: 2px; "
-    "} "
-    "QPushButton { "
-    "  background-color: #1E5C3A; " // Tito's Green
-    "  color: #FAFAF6; "            // Off-white text
-    "  border-radius: 6px; "
-    "  font-weight: bold; "
-    "  padding: 5px 10px; "
-    "} "
-    "QPushButton::hover { "
-    "  background-color: #2D7A4D; " // Lighter green on hover
-    "}";
-
-if (i % 2 == 0) {
-    frame->setStyleSheet(
-        "#cartItem {"
-        "  background-color: #F5F2EA;" // Beige background
-        "  border: 1.5px solid #C8B89A;"
-        "  border-radius: 8px;"
-        "  margin: 5px;"
-        "}" + internalStyles
-    );
-} else {
-    frame->setStyleSheet(
-        "#cartItem {"
-        "  background-color: #FAFAF6;" // Light cream background
-        "  border: 1.5px solid #C8B89A;"
-        "  border-radius: 8px;"
-        "  margin: 5px;"
-        "}" + internalStyles
-    );
-}
+    frame->setObjectName("CartFrame");
+    if (i % 2 == 1) {
+        frame->setStyleSheet("#CartFrame{background-color:rgba(200,200,200,1); border-radius:2px; padding:2px;} QPushButton{font-size:14px;background-color:rgba(200,171,151,0.5);color:#323638;border-radius:10px;font-weight:bold;padding:2px;} QPushButton::hover{background-color: rgba(185, 191, 193, 1);}");
+    }
+    if (i % 2 == 0) {
+        frame->setStyleSheet("#CartFrame{background-color:rgba(200,171,151,0.5); border-radius:2px; padding:2px;} QPushButton{font-size:14px;background-color:rgba(185, 191, 193, 1);color:#323638;border-radius:10px;font-weight:bold;padding:2px;} QPushButton::hover{background-color: rgba(200,171,151,0.5);}");
+    }
 
     i++;
 
@@ -332,6 +298,16 @@ void cashRegisterSystem::printReceipt(QLabel* priceAfter, QLabel* priceBefore) {
             "<p>" + currentDateTime.toString("yyyy-MM-dd HH:mm") + "</p>"
             "<h3 style='margin-top:10px;'>Thanks for ordering!</h3>"
             "<h6 style='margin:0;'>Good Coffee, Better mode!</p>"
+            "<br><br>"
+            "<br><br>"
+            "<br><br>"
+            "<br><br>"
+            "<br><br>"
+            "<br><br>"
+            "<br><br>"
+            "<br><br>"
+            "<br><br>"
+            "<br><br>"
             "</div>";
 
         // 4. Important: Use a temporary QTextDocument instead of the UI element

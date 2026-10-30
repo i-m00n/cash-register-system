@@ -1,3 +1,4 @@
 {
-  "C_Cpp.default.compilerPath": "/usr/bin/gcc-11"
+  "C_Cpp.default.compilerPath": "/usr/bin/gcc-11",
+  "cmake.sourceDirectory": "/home/moon/projects/cash-register-system/cashRegisterSystem"
 }

@@ -289,42 +289,8 @@ void cashRegisterSystem::Show_total_window(QVBoxLayout* VLayout, QTextBrowser* d
             prices = i.value().at(1).toFloat();
         }
         f->setObjectName("TotalFrame");
-
-        if (index % 2 == 1){
-            f->setStyleSheet(
-            "#TotalFrame{"
-            "background-color:#F5F2EA;"
-            "border:1px solid #C8B89A;"
-            "border-radius:10px;"
-            "margin:5px;"
-            "padding:6px;"
-            "}"
-            "QLabel{"
-            "font-weight:bold;"
-            "font-size:16px;"
-            "color:black;"
-            "background:transparent;"
-            "border:none;"
-            "}"
-        );}
-
-        if (index % 2 == 0){
-            f->setStyleSheet(
-                "#TotalFrame{"
-                "background-color:#FAFAF6;"
-                "border:1px solid #C8B89A;"
-                "border-radius:10px;"
-                "margin:5px;"
-                "padding:6px;"
-                "}"
-                "QLabel{"
-                "font-weight:bold;"
-                "font-size:16px;"
-                "color:black;"
-                "background:transparent;"
-                "border:none;"
-                "}"
-        );}
+        if (index % 2 == 1) f->setStyleSheet("#TotalFrame{background-color:rgba(200,171,151,0.5); border-radius:5px; margin:5px;} QLabel{font-weight:bold; font-size:16px;}");
+        if (index % 2 == 0) f->setStyleSheet("#TotalFrame{background-color:rgba(200,200,200,1); border-radius:5px; margin:5px;}QLabel{ font-weight:bold; font-size:16px; }");
 
         QLabel* name = new QLabel(i.key().at(0));
         QLabel* opType = new QLabel(i.key().at(1));
@@ -425,42 +391,9 @@ void cashRegisterSystem::Show_window(string type, QWidget* scrollContents, QVBox
         QLabel* Quantities = new QLabel(QString("الكمية : %1 ").arg(to_string(Quantity_Sell).c_str()));
         QLabel* pricesLabel = new QLabel(QString("السعر : %1").arg(QString::number(p)));
         f->setObjectName("OpFrame");
-        if (i % 2 == 1){
-            f->setStyleSheet(
-                "#OpFrame{"
-                "background-color:#F5F2EA;"
-                "border:1px solid #C8B89A;"
-                "border-radius:10px;"
-                "margin:5px;"
-                "padding:6px;"
-                "}"
-                "QLabel{"
-                "font-weight:bold;"
-                "font-size:16px;"
-                "color:black;"
-                "background:transparent;"
-                "border:none;"
-                "}"
-            );}
+        if (i % 2 == 1) f->setStyleSheet("#OpFrame{background-color:rgba(200,171,151,0.5); border-radius:5px; margin:5px;} QLabel{font-weight:bold; font-size:16px; }");
+        if (i % 2 == 0) f->setStyleSheet("#OpFrame{background-color:rgba(200,200,200,1); border-radius:5px; margin:5px;}QLabel{ font-weight:bold; font-size:16px; }");
 
-        if (i % 2 == 0){
-            f->setStyleSheet(
-                "#OpFrame{"
-                "background-color:#FAFAF6;"
-                "border:1px solid #C8B89A;"
-                "border-radius:10px;"
-                "margin:5px;"
-                "padding:6px;"
-                "}"
-                "QLabel{"
-                "font-weight:bold;"
-                "font-size:16px;"
-                "color:black;"
-                "background:transparent;"
-                "border:none;"
-                "}"
-            );}
-            
         hLayout->addWidget(Quantities);
         hLayout->addWidget(pricesLabel);
         hLayout->addWidget(opTypes);

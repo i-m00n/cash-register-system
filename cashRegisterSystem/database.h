@@ -8,6 +8,7 @@
 #include <chrono>
 #include <iomanip>
 #include <sstream>
+#include <vector>
 
 using namespace std;
 class Database {
@@ -35,12 +36,17 @@ public:
     void DeleteAllProdRow();
     void ExecuteStatement(const char* sql);
 
+    void runMonthlyOperationsArchive(string backupDir = "backups");
+
 private:
     sqlite3* m_db;
 
     void insertOperation(string, int, float, string, string, string);
     void updateOperation(string, int, float, string, string, string);
     bool isRowExist(string, string, string, string);
+
+    vector<string> getUnarchivedPastMonths(string currentMonth);
+    bool archiveAndDeleteOperationsForMonth(string yearMonth, string backupDir);
 
 };
 

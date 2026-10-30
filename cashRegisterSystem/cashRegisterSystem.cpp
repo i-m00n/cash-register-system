@@ -109,39 +109,32 @@ void cashRegisterSystem::populateProductList(QVBoxLayout* productsVerticalLayout
     QGridLayout* grid = new QGridLayout(GridFrame);
     grid->setAlignment(Qt::AlignRight);
 
-    // ── Tito's palette ──────────────────────────────────────────
-    // Even card:  cream surface  #F5F2EA  |  border #C8B89A
-    // Odd card:   white surface  #FAFAF6  |  border #C8B89A
-    // Button:     deep green     #1E5C3A  |  hover  #2D7A50
-    // SpinBox:    tan border     #C8B89A
-    // Label:      dark text      #1A2E23
-    // ────────────────────────────────────────────────────────────
+    const QString btnStyleEven =
+        "QPushButton{font-size:12px; background-color:rgba(185, 191, 193, 1); padding:2px; color:#323638; border-radius:10px;font-weight:bold; padding:2px;} QPushButton::hover{background-color: rgba(200,171,151,0.5);}";
+    const QString btnStyleOdd =
+        "QPushButton{font-size:12px; background-color:rgba(200, 171, 151, 0.5); padding:2px; color:#323638; border-radius:10px;font-weight:bold; padding:2px;} QPushButton::hover{background-color: rgba(185, 191, 193, 1);}";
 
-    const QString btnStyle =
-        "QPushButton{"
-        "  font-size:12px;"
-        "  background-color:#1E5C3A;"
-        "  color:#FAFAF6;"
-        "  border-radius:8px;"
-        "  font-weight:bold;"
-        "  padding:4px;"
-        "}"
-        "QPushButton:hover{"
-        "  background-color:#2D7A50;"
-        "}";
-
-    const QString spinStyle =
+    const QString spinStyleEven =
         "QDoubleSpinBox{"
-        "  border:1.5px solid #C8B89A;"
-        "  border-radius:5px;"
-        "  background:transparent;"
-        "  color:#1A2E23;"
-        "}"
-        "QDoubleSpinBox:hover{"
-        "  background-color:#E8EDE5;"
-        "  border-color:#2D7A50;"
-        "}"
-        "QDoubleSpinBox::down-arrow{image:url(:/cashRegisterSystem2/media/arrow-down.png);}"
+        "border:1px solid rgba(120, 91, 71, 1);"
+        "border-radius:5px;"
+        "background:transparent;}"
+        "QDoubleSpinBox::hover{"
+        "background-color: rgba(185, 191, 193, 1);"
+        "border:none;}"
+        "QDoubleSpinBox::down-arrow{"
+        "image:url(:/cashRegisterSystem2/media/arrow-down.png);}"
+        "QDoubleSpinBox::up-arrow{image:url(:/cashRegisterSystem2/media/arrow-up.png);}";
+    const QString spinStyleOdd =
+        "QDoubleSpinBox{"
+        "border:1px solid rgba(120, 91, 71, 1);"
+        "border-radius:5px;"
+        "background:transparent;}"
+        "QDoubleSpinBox::hover{"
+        "background-color: rgba(200,171,151,0.5);"
+        "border:none;}"
+        "QDoubleSpinBox::down-arrow{"
+        "image:url(:/cashRegisterSystem2/media/arrow-down.png);}"
         "QDoubleSpinBox::up-arrow{image:url(:/cashRegisterSystem2/media/arrow-up.png);}";
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
@@ -154,8 +147,11 @@ void cashRegisterSystem::populateProductList(QVBoxLayout* productsVerticalLayout
 
         nameLabel = new QLabel(QString::fromUtf8(name));
         nameLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        nameLabel->setStyleSheet("border:none; font-size:12px; font-weight:bold; color:#1A2E23;");
+        nameLabel->setStyleSheet("border: none; font-size:12px; font-weight:bold;");
         nameLabel->setAlignment(Qt::AlignRight);
+
+        const QString btnStyle = (i % 2 == 0) ? btnStyleEven : btnStyleOdd;
+        const QString spinStyle = (i % 2 == 0) ? spinStyleEven : spinStyleOdd;
 
         QPushButton* temp = new QPushButton("!اضافة للسلة");
         temp->setStyleSheet(btnStyle);
@@ -166,7 +162,7 @@ void cashRegisterSystem::populateProductList(QVBoxLayout* productsVerticalLayout
         quantityBox->setStyleSheet(spinStyle);
 
         QLabel* lab = new QLabel(QString("السعر: %1").arg(QString::fromUtf8(price)));
-        lab->setStyleSheet("border:none; font-size:14px; color:#5A7060;");
+        lab->setStyleSheet("border: none; font-size:16px;");
         lab->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
         float price_val = lab->text().split(" ")[1].toFloat();
@@ -188,26 +184,10 @@ void cashRegisterSystem::populateProductList(QVBoxLayout* productsVerticalLayout
         vboxLayout->addWidget(quantityBox);
         vboxLayout->addWidget(add_button.back());
 
-        // Alternate between cream and white cards
         frame->setObjectName("cartItem");
-        if (i % 2 == 0) {
-            frame->setStyleSheet(
-                "#cartItem{"
-                "  background-color:#F5F2EA;"
-                "  border:1.5px solid #C8B89A;"
-                "  border-radius:8px;"
-                "  margin:5px;"
-                "}"
-            );
-        } else {
-            frame->setStyleSheet(
-                "#cartItem{"
-                "  background-color:#FAFAF6;"
-                "  border:1.5px solid #C8B89A;"
-                "  border-radius:8px;"
-                "  margin:5px;"
-                "}"
-            );
+        frame->setStyleSheet("#cartItem{background-color:rgba(200,171,151,0.5); border-radius:5px; margin:5px;}");
+        if (i % 2 == 1) {
+            frame->setStyleSheet("#cartItem{background-color:rgba(200,200,200,1); border-radius:5px; margin:5px;}");
         }
 
         frame->setMaximumSize(149, 156);
@@ -220,15 +200,7 @@ void cashRegisterSystem::populateProductList(QVBoxLayout* productsVerticalLayout
         i++;
     }
 
-    productType->setStyleSheet(
-        "QLabel{"
-        "  padding:5px;"
-        "  margin-right:10px;"
-        "  font-size:18px;"
-        "  color:#1E5C3A;"
-        "  font-weight:bold;"
-        "}"
-    );
+    productType->setStyleSheet("QLabel{padding:5px; margin-right:10px; font-size:18px; color:#323638; font-weight:bold;}");
     productsVerticalLayout->addWidget(productType);
     productsVerticalLayout->addWidget(GridFrame);
 

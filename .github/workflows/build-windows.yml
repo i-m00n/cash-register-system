@@ -20,7 +20,7 @@ jobs:
           arch: "win64_msvc2019_64"
 
       - name: Configure CMake
-        run: cmake -B build -S cashRegisterSystem
+        run: cmake -B build -S cashRegisterSystem -T version=14.29
 
       - name: Build
         run: cmake --build build --config Release -- /p:CharacterSet=Unicode
